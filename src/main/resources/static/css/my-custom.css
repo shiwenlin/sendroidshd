@@ -12,11 +12,7 @@
     float: left;
     margin-top: 2vh;
 }
-.input-group{
-    width: 12vw;
-    float: right;
-    margin-right: 10vw;
-}
+
 
 .select-group,.input-group2{
     width: 14%;
