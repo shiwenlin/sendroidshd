@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:ddl="http://www.thymeleaf.org/dandelion"
+      xmlns:dt="http://github.com/dandelion/datatables"
+      lang="en">
+<head th:include="fragments/headTag :: headTag"><!-- REPLACE BEFORE COMMITTING --></head>
+<body>
+<!-- WRAPPER -->
+<div id="wrapper">
+    <!-- NAVBAR -->
+    <div th:include="fragments/navBar" th:remove="tag">REPLACE BEFORE COMMITTING</div>
+    <!-- END NAVBAR -->
+    <!-- LEFT SIDEBAR -->
+    <div th:include="fragments/sidebarTag" th:remove="tag">REPLACE BEFORE COMMITTING</div>
+    <!-- END LEFT SIDEBAR -->
+    <div class="main">
+        <!-- MAIN CONTENT -->
+        <div class="main-content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <!-- RECENT PURCHASES -->
+                        <div class="panel">
+                            <div class="panel-heading ph1">
+                                <h3 class="text-center"><b>审批进度</b></h3>
+                            </div>
+                            <div class="panel-body">
+                                <br/><br/><br/>
+                                <div class="col-md-12 progress-title">
+                                    <button class="col-md-3">林业站</button>
+                                    <button class="col-md-3">林业局</button>
+                                    <button class="col-md-3">财政局</button>
+                                    <button class="col-md-3">银&nbsp;行</button>
+                                </div>
+                                <br/><br/>
+                                <div class="col-md-12 progressbar">
+                                    <button class="btn-progress-success col-md-2" >提交成功</button>
+                                    <button class="btn-progress-next col-md-1"><i class="glyphicon glyphicon-arrow-right arrow-success"></i></button>
+                                    <button class="btn-progress-success col-md-2" >审批通过</button>
+                                    <button class="btn-progress-next col-md-1"><i class="glyphicon glyphicon-arrow-right arrow-success"></i></button>
+                                    <button class="btn-progress-success col-md-2" >审批通过</button>
+                                    <button class="btn-progress-next col-md-1"><i class="glyphicon glyphicon-arrow-right arrow-verfying"></i></button>
+                                    <button class="btn-progress-verifying col-md-2" >审批中</button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- END RECENT PURCHASES -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--<div class="clearfix"></div>-->
+</div>
+<!-- END WRAPPER -->
+<!-- Javascript -->
+<div th:include="fragments/jsTag" th:remove="tag">REPLACE BEFORE COMMITTING</div>
+<!-- END Javascript -->
+</body>
+</html>

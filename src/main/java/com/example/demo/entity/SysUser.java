@@ -10,7 +10,7 @@ import java.util.Collection;
 import java.util.List;
 
 
-@Entity
+@Entity(name="sys_user")
 public class SysUser implements UserDetails {
 
 

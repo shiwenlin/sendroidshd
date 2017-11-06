@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:ddl="http://www.thymeleaf.org/dandelion"
+      xmlns:dt="http://github.com/dandelion/datatables"
+      lang="en">
+<head th:include="fragments/headTag :: headTag"><!-- REPLACE BEFORE COMMITTING --></head>
+<body>
+<!-- WRAPPER -->
+<div id="wrapper">
+    <!-- NAVBAR -->
+    <div th:include="fragments/navBar" th:remove="tag">REPLACE BEFORE COMMITTING</div>
+    <!-- END NAVBAR -->
+    <!-- LEFT SIDEBAR -->
+    <div th:include="fragments/sidebarTag" th:remove="tag">REPLACE BEFORE COMMITTING</div>
+    <!-- END LEFT SIDEBAR -->
+    <div class="main">
+        <!-- MAIN CONTENT -->
+        <div class="main-content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <!-- RECENT PURCHASES -->
+                        <div class="panel">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">资料审核</h3>
+                                <div class="right">
+                                    <button type="button" class="btn-toggle-collapse"><i class="lnr lnr-chevron-up"></i></button>
+                                    <button type="button" class="btn-remove"><i class="lnr lnr-cross"></i></button>
+                                </div>
+                            </div>
+                            <div class="panel-body">
+                                <form class="form-horizontal" enctype="multipart/form-data">
+                                    <div class="tab" role="tabpanel">
+                                        <!-- Nav tabs -->
+                                        <ul class="nav nav-tabs" role="tablist" style="margin-top: 20px">
+                                            <li role="presentation" class="active"><a href="#Section1" aria-controls="home" role="tab" data-toggle="tab" style="font-size: 1.4em">户资料</a></li>
+                                            <li role="presentation"><a href="#Section2" aria-controls="profile" role="tab" data-toggle="tab" style="font-size: 1.4em">林权资料</a></li>
+                                            <li role="presentation"><a href="#Section3" aria-controls="messages" role="tab" data-toggle="tab" style="font-size: 1.4em">家庭成员资料</a></li>
+                                        </ul>
+
+                                        <!-- Tab panes -->
+                                        <div class="tab-content tabs">
+                                            <div role="tabpanel" class="tab-pane fade in active" id="Section1">
+                                                <div class="form-group">
+                                                    <div class="col-xs-12">
+                                                        <div class="col-xs-4 table-choice">
+                                                            <label>乡镇:</label>
+                                                            <input type="text" class="form-control" placeholder="北滘镇" readonly="readonly"/>
+                                                        </div>
+                                                        <div class="col-xs-4 table-choice">
+                                                            <label>村委:</label>
+                                                            <input type="text" class="form-control" placeholder="呵呵呵" readonly="readonly"/>
+                                                        </div>
+                                                        <div class="col-xs-4 table-choice">
+                                                            <label>村小组:</label>
+                                                            <input type="text" class="form-control" placeholder="哈哈哈"  readonly="readonly"/>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="col-xs-12">
+                                                        <div class="col-xs-4 table-choice">
+                                                            <label>户主:</label>
+                                                            <input type="text" class="form-control" placeholder="吴德闲"  readonly="readonly"/>
+                                                        </div>
+                                                        <div class="col-xs-4 table-choice">
+                                                            <label>成员人数:</label>
+                                                            <input type="text" class="form-control" placeholder="5"  readonly="readonly"/>
+                                                        </div>
+                                                        <div class="col-xs-4 table-choice">
+                                                            <label>家庭地址:</label>
+                                                            <input type="text" class="form-control" placeholder="额呵呵哈哈哈哈哈"  readonly="readonly"/>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="col-xs-12">
+                                                        <p><strong>备注：</strong></p>
+                                                    </div>
+                                                    <div class="col-xs-12">
+                                                        <textarea placeholder="" style="min-width: 75%;max-width: 100%;height: 100px"></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div role="tabpanel" class="tab-pane fade" id="Section2">
+                                                <div class="form-group">
+                                                    <div class="col-xs-12">
+                                                        <div class="col-xs-4 table-choice">
+                                                            <label>股权证号:</label>
+                                                            <input type="text" class="form-control" placeholder="" />
+                                                        </div>
+                                                        <div class="col-xs-4 table-choice">
+                                                            <label>股份数:</label>
+                                                            <input type="text" class="form-control" placeholder="" />
+                                                        </div>
+                                                        <div class="col-xs-4 table-choice">
+                                                            <label>经营权:</label>
+                                                            <input type="text" class="form-control" style="padding: 0" placeholder="" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="col-xs-12">
+                                                        <div class="col-xs-4 table-choice">
+                                                            <label>林权证号:</label>
+                                                            <input type="text" class="form-control" placeholder="" />
+                                                        </div>
+                                                        <div class="col-xs-4 table-choice">
+                                                            <label>面积:</label>
+                                                            <input type="text" class="form-control" placeholder="" />
+                                                        </div>
+                                                        <div class="col-xs-4 table-choice">
+                                                            <label>林权证扫描图:</label>
+                                                            <input type="file" placeholder="" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="col-xs-12">
+                                                        <p><strong>备注：</strong></p>
+                                                    </div>
+                                                    <div class="col-xs-12">
+                                                        <textarea placeholder="" style="min-width: 75%;max-width: 100%;height: 100px"></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div role="tabpanel" class="tab-pane fade" id="Section3">
+                                                <div class="form-group">
+                                                    <div class="col-xs-12" style="margin: 10px 0 15px">
+                                                        <div class="pull-left">
+                                                            <div class="btn-group table-choice" role="group" aria-label="...">
+                                                                <button type="button" class="btn btn-default">全部 </button>
+                                                                <button type="button" class="btn btn-default">待审核</button>
+                                                                <button type="button" class="btn btn-default">已通过</button>
+                                                                <button type="button" class="btn btn-default">未通过</button>
+                                                            </div>
+                                                        </div>
+                                                        <div class="pull-right">
+                                                            <div class="btn-group table-choice" role="group" aria-label="...">
+                                                                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal1">审核通过</button>
+                                                                <button class="btn btn-danger" type="button" data-toggle="modal" data-target="#myModal2">退回重制</button>
+                                                            </div>
+                                                            <!--<div class="btn-group table-choice hidden" role="group" aria-label="...">-->
+                                                            <!--<button type="submit" class="btn btn-primary">提交</button>-->
+                                                            <!--<button type="submit" class="btn btn-primary">保存</button>-->
+                                                            <!--</div>-->
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="col-xs-12" >
+                                                        <table id="equipments" class="table table-striped table-bordered" dt:table="true" dt:pagination="true" cellspacing="0" width="100%">
+                                                            <thead dt:scroller="true">
+                                                            <tr>
+                                                                <th class="col-xs-1">序号</th>
+                                                                <th class="col-xs-2">姓名</th>
+                                                                <th class="col-xs-2">身份证号码</th>
+                                                                <th class="col-xs-2">账户</th>
+                                                                <th class="col-xs-2">手机</th>
+                                                                <th class="col-xs-2">固定电话</th>
+                                                                <th class="col-xs-1">审核</th>
+                                                            </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                            <tr>
+                                                                <td>1</td>
+                                                                <td>张xx</td>
+                                                                <td>123456789123456789</td>
+                                                                <td>123456789456</td>
+                                                                <td>12345678912</td>
+                                                                <td>0756-12345678</td>
+                                                                <td><span class="label label-success">已审核</span><input class="" type="checkbox"/></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>2</td>
+                                                                <td>张xx</td>
+                                                                <td>123456789123456789</td>
+                                                                <td>123456789456</td>
+                                                                <td>12345678912</td>
+                                                                <td>0756-12345678</td>
+                                                                <td><span class="label label-info">已审核</span><input type="checkbox"/></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>3</td>
+                                                                <td>张xx</td>
+                                                                <td>123456789123456789</td>
+                                                                <td>123456789456</td>
+                                                                <td>12345678912</td>
+                                                                <td>0756-12345678</td>
+                                                                <td><span class="label label-warning">未审核</span><input type="checkbox"/></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>4</td>
+                                                                <td>张xx</td>
+                                                                <td>123456789123456789</td>
+                                                                <td>123456789456</td>
+                                                                <td>12345678912</td>
+                                                                <td>0756-12345678</td>
+                                                                <td><span class="label label-danger">退回重制</span><input type="checkbox"/></td>
+                                                            </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                    <h4 class="modal-title" id="myModalLabel1">确认上交</h4>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <p>是否确认所有资料核对完毕，上传审核</p>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-default" data-dismiss="modal">返回</button>
+                                                    <button type="submit" class="btn btn-success">确认上传</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                    <h4 class="modal-title" id="myModalLabel">退回重制理由</h4>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div class="checkbox">
+                                                        <label>
+                                                            <input type="checkbox" value="" />
+                                                            Option one is this and that&mdash;be sure to include why it's great
+                                                        </label>
+                                                    </div>
+                                                    <div class="checkbox">
+                                                        <label>
+                                                            <input type="checkbox" value="" />
+                                                            Option one is this and that&mdash;be sure to include why it's great
+                                                        </label>
+                                                    </div>
+                                                    <div class="checkbox">
+                                                        <label>
+                                                            <input type="checkbox" value="" />
+                                                            Option one is this and that&mdash;be sure to include why it's great
+                                                        </label>
+                                                    </div>
+                                                    <textarea placeholder="" style="min-width: 99%;max-width: 100%;height: 100px"></textarea>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                                                    <button type="submit" class="btn btn-danger">退回重制</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <!-- END RECENT PURCHASES -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--<div class="clearfix"></div>-->
+</div>
+<!-- END WRAPPER -->
+<!-- Javascript -->
+<div th:include="fragments/jsTag" th:remove="tag">REPLACE BEFORE COMMITTING</div>
+<!-- END Javascript -->
+</body>
+</html>

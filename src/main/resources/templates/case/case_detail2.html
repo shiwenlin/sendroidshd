@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:ddl="http://www.thymeleaf.org/dandelion"
+      xmlns:dt="http://github.com/dandelion/datatables"
+      lang="en">
+<head th:include="fragments/headTag :: headTag"><!-- REPLACE BEFORE COMMITTING --></head>
+<body>
+<!-- WRAPPER -->
+<div id="wrapper">
+    <!-- NAVBAR -->
+    <div th:include="fragments/navBar" th:remove="tag">REPLACE BEFORE COMMITTING</div>
+    <!-- END NAVBAR -->
+    <!-- LEFT SIDEBAR -->
+    <div th:include="fragments/sidebarTag" th:remove="tag">REPLACE BEFORE COMMITTING</div>
+    <!-- END LEFT SIDEBAR -->
+    <!-- MAIN -->
+    <div class="main">
+        <!-- MAIN CONTENT -->
+        <div class="main-content">
+            <div class="container-fluid">
+                <div class="panel">
+                    <div class="panel-heading">
+                        <!--<h3 class="panel-title">补偿方案一览</h3>-->
+                        <h3 class="text-center">省级生态公益林集体统一经营补偿资金分配表</h3>
+
+                        <p class="pull-right">填表时间：2017年</p><br />
+                        <div class="right">
+                            <button type="button" class="btn-toggle-collapse"><i class="lnr lnr-chevron-up"></i></button>
+                            <button type="button" class="btn-remove"><i class="lnr lnr-cross"></i></button>
+                        </div>
+                    </div>
+                    <div class="panel-body no-padding">
+                        <table class="table table-hover">
+                            <thead>
+                            <tr>
+                                <th>项目</th>
+                                <th>分配占比(%)</th>
+                                <th>股权证号</th>
+                                <th>股份数</th>
+                                <th>面积</th>
+                                <th>金额</th>
+                                <th>开户行</th>
+                                <th>银行帐号</th>
+                                <th>备注</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>村委或村小组留存</td>
+                                <td>30</td>
+                                <td></td>
+                                <td></td>
+                                <td>300</td>
+                                <td>3000</td>
+                                <td>农商行</td>
+                                <td>1234567891234567</td>
+                                <td>备注明细</td>
+                            </tr>
+                            <tr>
+                                <td>村委或村小组分配给个人</td>
+                                <td>70</td>
+                                <td></td>
+                                <td></td>
+                                <td>700</td>
+                                <td>7000</td>
+                                <td></td>
+                                <td></td>
+                                <td>备注明细</td>
+                            </tr>
+                            <tr>
+                                <td>合计</td>
+                                <td>100</td>
+                                <td></td>
+                                <td></td>
+                                <td>1000</td>
+                                <td>10000</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="panel">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">明细</h3>
+                        <div class="right">
+                            <button type="button" class="btn-toggle-collapse"><i class="lnr lnr-chevron-up"></i></button>
+                            <button type="button" class="btn-remove"><i class="lnr lnr-cross"></i></button>
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="panel-body no-padding">
+                        <form action="">
+                            <table id="example" class="display table table-striped table-hover" cellspacing="0" width="100%">
+                                <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>序号</th>
+                                    <th>镇</th>
+                                    <th>村委</th>
+                                    <th>村小组</th>
+                                    <th>户名</th>
+                                    <th>身份证号</th>
+                                    <th>住址</th>
+                                    <th>固定电话</th>
+                                    <th>手机</th>
+                                    <th>家庭人口</th>
+                                </tr>
+                                </thead>
+
+                                <tfoot>
+                                <tr>
+                                    <th></th>
+                                    <th>序号</th>
+                                    <th>镇</th>
+                                    <th>村委</th>
+                                    <th>村小组</th>
+                                    <th>户名</th>
+                                    <th>身份证号</th>
+                                    <th>住址</th>
+                                    <th>固定电话</th>
+                                    <th>手机</th>
+                                    <th>家庭人口</th>
+                                </tr>
+                                </tfoot>
+                            </table>
+                            <hr />
+                            <div class="" style="margin: auto;width: 220px">
+                                <button class="btn btn-primary pull-left">打印单据</button>
+                                <button class="btn btn-primary pull-right" type="button" data-toggle="modal" data-target="#myModal">退回重制</button>
+                                <a  class="btn btn-default " style="margin: 10px" th:href="@{'/case_view.html'}" href="case_view.html">返回</a>
+                            </div>
+                            <!-- Modal -->
+                            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                            <h4 class="modal-title" id="myModalLabel">退回重制理由</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <textarea placeholder="" style="min-width: 99%;max-width: 100%;height: 100px"></textarea>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                                            <button type="submit" class="btn btn-primary">提交</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END MAIN CONTENT -->
+    </div>
+    <!-- END MAIN -->
+    <div class="clearfix"></div>
+
+    <!--<div class="clearfix"></div>-->
+</div>
+<!-- END WRAPPER -->
+
+<!-- Javascript -->
+<div th:include="fragments/jsTag" th:remove="tag">REPLACE BEFORE COMMITTING</div>
+<script>
+
+    $(document).ready(function() {
+        var table = $('#example').DataTable( {
+            "ajax": "data/aa.txt",
+            "columns": [
+                {
+                    "class":          'details-control',
+                    "orderable":      false,
+                    "data":           null,
+                    "defaultContent": ''
+                },
+                { "data": "order" },
+                { "data": "town" },
+                { "data": "vill" },
+                { "data": "group" },
+                { "data": "hostname" },
+                { "data": "idcard" },
+                { "data": "address" },
+                { "data": "phone" },
+                { "data": "mobile" },
+                { "data": "membernum" }
+            ],
+            "order": [[1, 'asc']],
+            "oLanguage": {
+                "oAria": {
+                    "sSortAscending": " - click/return to sort ascending",
+                    "sSortDescending": " - click/return to sort descending"
+                },
+                "sLengthMenu": "显示 _MENU_ 记录",
+                "sZeroRecords": "对不起，查询不到任何相关数据",
+                "sEmptyTable": "未有相关数据",
+                "sLoadingRecords": "正在加载数据-请等待...",
+                "sInfo": "当前显示 _START_ 到 _END_ 条，共 _TOTAL_ 条记录。",
+                "sInfoEmpty": "当前显示0到0条，共0条记录",
+                "sInfoFiltered": "（数据库中共为 _MAX_ 条记录）",
+                "sProcessing": " 正在加载数据...",
+                "sSearch": "模糊查询：",
+                "sUrl": "",
+                //多语言配置文件，可将oLanguage的设置放在一个txt文件中，例：Javascript/datatable/dtCH.txt
+                "oPaginate": {
+                    "sFirst": "首页",
+                    "sPrevious": " 上一页 ",
+                    "sNext": " 下一页 ",
+                    "sLast": " 尾页 "
+                }
+            }
+
+        } );
+        // Add event listener for opening and closing details
+        $('#example tbody').on('click', 'td.details-control', function () {
+            var tr = $(this).closest('tr');
+            var row = table.row( tr );
+            if ( row.child.isShown() ) {
+                // This row is already open - close it
+                row.child.hide();
+                tr.removeClass('shown');
+            }
+            else {
+                // Open this row
+                row.child( format(row.data()) ).show();
+                tr.addClass('shown');
+            }
+        } );
+    } );
+</script>
+</body>
+</html>

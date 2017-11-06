@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:dt="http://github.com/dandelion/datatables"
+      lang="en">
+<head th:include="fragments/headTag :: headTag"><!-- REPLACE BEFORE COMMITTING --></head>
+<body>
+<!-- WRAPPER -->
+<div id="wrapper">
+    <!-- NAVBAR -->
+    <div th:include="fragments/navBar" th:remove="tag">REPLACE BEFORE COMMITTING</div>
+    <!-- END NAVBAR -->
+    <!-- LEFT SIDEBAR -->
+    <div th:include="fragments/sidebarTag" th:remove="tag">REPLACE BEFORE COMMITTING</div>
+    <!-- END LEFT SIDEBAR -->
+    <!-- MAIN -->
+    <div class="main">
+        <!-- MAIN CONTENT -->
+        <div class="main-content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <form>
+                            <div class="panel">
+                                <div class="panel-heading ph1">
+                                        <h3 class="text-center"><b>生态公益林集体统一经营补偿资金分配表</b></h3>
+                                    <div class="right">
+                                        <button type="button" class="btn-toggle-collapse"><i class="lnr lnr-chevron-up"></i></button>
+                                    </div>
+                                </div>
+                                <div class="panel-body" id="panel1">
+                                    <div>
+                                        <div class="div-date">
+                                            <br/>
+                                            <div class="div-zone">
+                                                <select class="select-zone" name="zone">
+                                                    <option value="省级">省级</option>
+                                                    <option value="市级">市级</option>
+                                                </select>
+                                            </div>
+                                            <div class="input-group" >
+                                                <span class="input-group-addon">填表时间：</span>
+                                                <input type="text" onfocus="(this.type='date')" name="date" class="form-control" placeholder="yyyy-mm-dd" tabindex="1"/>
+                                            </div>
+
+                                        </div>
+                                        <div class="info-group">
+                                            <div class="select-group" >
+                                                <select class="option-control" tabindex="2" name="select-town">
+                                                    <option value="">请选择</option>
+                                                    <option value="平山">平山</option>
+                                                    <option value="大岭">大岭</option>
+                                                    <option value="安墩">安墩</option>
+                                                    <option value="宝口">宝口</option>
+                                                    <option value="高谭">高谭</option>
+                                                    <option value="增光">增光</option>
+                                                </select>
+                                                <input type="button" class="select-group-addon" value="镇"/>
+                                            </div>
+                                            <div class="select-group" >
+                                                <select class="option-control" tabindex="3" name="select-village">
+                                                    <option value="">请选择</option>
+                                                    <option value="">陈塘</option>
+                                                    <option value="陈塘">碧山</option>
+                                                    <option value="光明">光明</option>
+                                                    <option value="谭公">谭公</option>
+                                                    <option value="下联">下联</option>
+                                                    <option value="鹤楼">鹤楼</option>
+                                                </select>
+                                                <input type="button" class="select-group-addon" value="村委"/>
+                                            </div>
+                                            <div class="select-group" >
+                                                <input type="text" class="select-group-text" name="village-group" placeholder="请输入" tabindex="4"/>
+                                                <input type="button" class="select-group-addon" value="村小组"/>
+                                            </div>
+                                            <div class="input-group2" >
+                                                <input type="button" class="input-group2-head" value="总户数："/>
+                                                <input type="text" class="input-group2-text" name="all-households" placeholder="请输入" tabindex="5"/>
+                                                <input type="button" class="input-group2-foot" value="户"/>
+                                            </div>
+                                            <div class="input-group2" >
+                                                <input type="button" class="input-group2-head" value="总人口："/>
+                                                <input type="text" class="input-group2-text" name="all-population" placeholder="请输入" tabindex="6"/>
+                                                <input type="button" class="input-group2-foot" value="人"/>
+                                            </div>
+                                            <div class="input-group2" >
+                                                <input type="button" class="input-group2-head" value="补偿面积："/>
+                                                <input type="text" class="input-group2-text" name="all-area" placeholder="请输入" tabindex="7"/>
+                                                <input type="button" class="input-group2-foot" value="亩"/>
+                                            </div>
+                                            <div class="input-group2" >
+                                                <input type="button" class="input-group2-head" value="补偿总额："/>
+                                                <input type="text" class="input-group2-text" name="all-money" placeholder="请输入" tabindex="8"/>
+                                                <input type="button" class="input-group2-foot" value="元"/>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <table class="table table-hover" id="table-first">
+                                        <thead>
+                                        <tr class="col-md-15" id="tr-title">
+                                            <th><input  type="text" class="form-text-title"  disabled="disabled" value="项目"/></th>
+                                            <th><input  type="text" class="form-text-title"  disabled="disabled" value="分配占比(%)"/></th>
+                                            <th><input  type="text" class="form-text-title"  disabled="disabled" value="股权证号"/></th>
+                                            <th><input  type="text" class="form-text-title"  disabled="disabled" value="股份数"/></th>
+                                            <th><input  type="text" class="form-text-title"  disabled="disabled" value="面积(亩)"/></th>
+                                            <th><input  type="text" class="form-text-title"  disabled="disabled" value="金额"/></th>
+                                            <th><input  type="text" class="form-text-title"  disabled="disabled" value="开户行"/></th>
+                                            <th><input  type="text" class="form-text-title"  disabled="disabled" value="银行帐号"/></th>
+                                            <th><input  type="text" class="form-text-title"  disabled="disabled" value="备注"/></th>
+                                        </tr>
+                                        </thead>
+                                        <tbody >
+                                        <tr class="col-md-15" id="tr1">
+                                            <td class="col-md-1.5 no-padding"><input type="text" class="form-text-first" disabled="disabled" value="村委或村小组留存"/></td>
+                                            <td class="col-md-1 no-padding"><input type="text" class="form-control" disabled="disabled" placeholder="30%"/></td>
+                                            <td class="col-md-1 no-padding"><input type="text" class="form-control" name="SCnumber" tabindex="9"/></td>
+                                            <td class="col-md-1 no-padding"><input type="text" class="form-control" disabled="disabled"/></td>
+                                            <td class="col-md-1 no-padding"><input type="text" class="form-control" name="area"/></td>
+                                            <td class="col-md-1 no-padding"><input type="text" class="form-control" name="money"/></td>
+                                            <td class="col-md-2 no-padding"><input type="text" class="form-control" name="bank-position"/></td>
+                                            <td class="col-md-2 no-padding"><input type="text" class="form-control" name="bank"/></td>
+                                            <td class="col-md-0.5 no-padding"><input type="text" class="form-control" placeholder=""/></td>
+                                        </tr>
+                                        <tr class="col-md-15" id="tr2">
+                                            <td class="col-md-2 no-padding"><input type="text" class="form-text-first" disabled="disabled" value="村委或村小组分配给个人"/></td>
+                                            <td class="col-md-1 no-padding"><input type="text" class="form-control" disabled="disabled" placeholder="70%"/></td>
+                                            <td class="col-md-1 no-padding"><input type="text" class="form-control" name="SCnumber"/></td>
+                                            <td class="col-md-1 no-padding"><input type="text" class="form-control" disabled="disabled"/></td>
+                                            <td class="col-md-1 no-padding"><input type="text" class="form-control" name="area"/></td>
+                                            <td class="col-md-1 no-padding"><input type="text" class="form-control" name="money"/></td>
+                                            <td class="col-md-2 no-padding"><input type="text" class="form-control" name="bank-position"/></td>
+                                            <td class="col-md-2 no-padding"><input type="text" class="form-control" name="bank"/></td>
+                                            <td class="col-md-0.5 no-padding"><input type="text" class="form-control" placeholder=""/></td>
+                                        </tr>
+                                        <tr class="col-md-15" id="tr3">
+                                            <td class="col-md-2 no-padding"><input  type="text" class="form-text-first" disabled="disabled" value="合&nbsp;&nbsp;  计"/></td>
+                                            <td class="col-md-1 no-padding"><input type="text" class="form-control" disabled="disabled" placeholder="100%"/></td>
+                                            <td class="col-md-1 no-padding"><input type="text" class="form-control" disabled="disabled"/></td>
+                                            <td class="col-md-1 no-padding"><input type="text" class="form-control" disabled="disabled"/></td>
+                                            <td class="col-md-1 no-padding"><input type="text" class="form-control" disabled="disabled"/></td>
+                                            <td class="col-md-1 no-padding"><input type="text" class="form-control" disabled="disabled" /></td>
+                                            <td class="col-md-2 no-padding"><input type="text" class="form-control" disabled="disabled"/></td>
+                                            <td class="col-md-2 no-padding"><input type="text" class="form-control" disabled="disabled"/></td>
+                                            <td class="col-md-0.5 no-padding"><input type="text" class="form-control" /></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <div class="panel-body no-padding">
+                                    <h2 class="panel-title"><b>分配给个人明细</b></h2>
+                                    <br/>
+                                    <div>
+                                        <table class="table table-striped table-hover" id="table-last">
+                                            <thead>
+                                            <tr class="col-md-15" id="tr-title2">
+                                                <th class="col-md-0.5 no-padding"><input  type="text" class="form-text-title"  disabled="disabled" value="序号"/></th>
+                                                <th class="col-md-1 no-padding"><input  type="text" class="form-text-title"  disabled="disabled" value="姓名"/></th>
+                                                <th class="col-md-1 no-padding"><input  type="text" class="form-text-title"  disabled="disabled" value="身份证号"/></th>
+                                                <th class="col-md-1 no-padding"><input  type="text" class="form-text-title"  disabled="disabled" value="地址"/></th>
+                                                <th class="col-md-1 no-padding"><input  type="text" class="form-text-title"  disabled="disabled" value="固定电话"/></th>
+                                                <th class="col-md-1 no-padding"><input  type="text" class="form-text-title"  disabled="disabled" value="手机"/></th>
+                                                <th class="col-md-0.5 no-padding"><input  type="text" class="form-text-title"  disabled="disabled" value="家庭人口"/></th>
+                                                <th class="col-md-1 no-padding"><input  type="text" class="form-text-title"  disabled="disabled" value="股权证号"/></th>
+                                                <th class="col-md-0.5 no-padding"><input  type="text" class="form-text-title"  disabled="disabled" value="股份数"/></th>
+                                                <th class="col-md-2 no-padding"><input  type="text" class="form-text-title"  disabled="disabled" value="农商银行号"/></th>
+                                                <th class="col-md-0.5 no-padding"><input  type="text" class="form-text-title"  disabled="disabled" value="面积(亩)"/></th>
+                                                <th class="col-md-1 no-padding"><input  type="text" class="form-text-title"  disabled="disabled" value="金额(元)"/></th>
+                                                <th class="col-md-1 no-padding"><input  type="text" class="form-text-title"  disabled="disabled" value="备注"/></th>
+                                            </tr>
+                                            </thead>
+                                            <tbody class="tbody-last">
+                                            <tr class="col-md-15">
+                                                <td class="td-checkbox"><div><input type="text" class="order_number" disabled="disabled" value="1"/><input type="checkbox" class="checkbox" id="201700001"/></div></td>
+                                                <td class="col-md-1 no-padding"><input type="text" class="form-control" name="person"/></td>
+                                                <td class="col-md-1.5 no-padding"><input type="text" class="form-control" name="IDnumber"/></td>
+                                                <td class="col-md-1 no-padding"><input type="text" class="form-control" name="address"/></td>
+                                                <td class="col-md-1 no-padding"><input type="text" class="form-control" name="telephone"/></td>
+                                                <td class="col-md-1 no-padding"><input type="text" class="form-control" name="cellphone"/></td>
+                                                <td class="col-md-0.5 no-padding"><input type="text" class="form-control" name="population"/></td>
+                                                <td class="col-md-1 no-padding"><input type="text" class="form-control" name="SCnumber"/></td>
+                                                <td class="col-md-0.5 no-padding"><input type="text" class="form-control" name="stock"/></td>
+                                                <td class="col-md-1.5 no-padding"><input type="text" class="form-control" name="bank"/></td>
+                                                <td class="col-md-0.5 no-padding"><input type="text" class="form-control" name="area"/></td>
+                                                <td class="col-md-1 no-padding"><input type="text" class="form-control" name="money"/></td>
+                                                <td class="col-md-1 no-padding"><input type="text" class="form-control" name="detail"/></td>
+                                            </tr>
+                                            <tr class="col-md-15">
+                                                <td class="td-checkbox"><div><input type="text" class="order_number" disabled="disabled" value="2"/><input type="checkbox" class="checkbox" id="201700002"/></div></td>
+                                                <td class="col-md-1 no-padding"><input type="text" class="form-control" name="person"/></td>
+                                                <td class="col-md-1.5 no-padding"><input type="text" class="form-control" name="IDnumber"/></td>
+                                                <td class="col-md-1 no-padding"><input type="text" class="form-control" name="address"/></td>
+                                                <td class="col-md-1 no-padding"><input type="text" class="form-control" name="telephone"/></td>
+                                                <td class="col-md-1 no-padding"><input type="text" class="form-control" name="cellphone"/></td>
+                                                <td class="col-md-0.5 no-padding"><input type="text" class="form-control" name="population"/></td>
+                                                <td class="col-md-1 no-padding"><input type="text" class="form-control" name="SCnumber"/></td>
+                                                <td class="col-md-0.5 no-padding"><input type="text" class="form-control" name="stock"/></td>
+                                                <td class="col-md-1.5 no-padding"><input type="text" class="form-control" name="bank"/></td>
+                                                <td class="col-md-0.5 no-padding"><input type="text" class="form-control" name="area"/></td>
+                                                <td class="col-md-1 no-padding"><input type="text" class="form-control" name="money"/></td>
+                                                <td class="col-md-1 no-padding"><input type="text" class="form-control" name="detail"/></td>
+                                            </tr>
+                                            <tr class="col-md-15">
+                                                <td class="td-checkbox"><div><input type="text" class="order_number" disabled="disabled" value="3"/><input type="checkbox" class="checkbox" id="201700003"/></div></td>
+                                                <td class="col-md-1 no-padding"><input type="text" class="form-control" name="person"/></td>
+                                                <td class="col-md-1.5 no-padding"><input type="text" class="form-control" name="IDnumber"/></td>
+                                                <td class="col-md-1 no-padding"><input type="text" class="form-control" name="address"/></td>
+                                                <td class="col-md-1 no-padding"><input type="text" class="form-control" name="telephone"/></td>
+                                                <td class="col-md-1 no-padding"><input type="text" class="form-control" name="cellphone"/></td>
+                                                <td class="col-md-0.5 no-padding"><input type="text" class="form-control" name="population"/></td>
+                                                <td class="col-md-1 no-padding"><input type="text" class="form-control" name="SCnumber"/></td>
+                                                <td class="col-md-0.5 no-padding"><input type="text" class="form-control" name="stock"/></td>
+                                                <td class="col-md-1.5 no-padding"><input type="text" class="form-control" name="bank"/></td>
+                                                <td class="col-md-0.5 no-padding"><input type="text" class="form-control" name="area"/></td>
+                                                <td class="col-md-1 no-padding"><input type="text" class="form-control" name="money"/></td>
+                                                <td class="col-md-1 no-padding"><input type="text" class="form-control" name="detail"/></td>
+                                            </tr>
+                                            <tr class="col-md-15">
+                                                <td class="td-checkbox"><div><input type="text" class="order_number" disabled="disabled" value="4"/><input type="checkbox" class="checkbox" id="201700004"/></div></td>
+                                                <td class="col-md-1 no-padding"><input type="text" class="form-control" name="person"/></td>
+                                                <td class="col-md-1.5 no-padding"><input type="text" class="form-control" name="IDnumber"/></td>
+                                                <td class="col-md-1 no-padding"><input type="text" class="form-control" name="address"/></td>
+                                                <td class="col-md-1 no-padding"><input type="text" class="form-control" name="telephone"/></td>
+                                                <td class="col-md-1 no-padding"><input type="text" class="form-control" name="cellphone"/></td>
+                                                <td class="col-md-0.5 no-padding"><input type="text" class="form-control" name="population"/></td>
+                                                <td class="col-md-1 no-padding"><input type="text" class="form-control" name="SCnumber"/></td>
+                                                <td class="col-md-0.5 no-padding"><input type="text" class="form-control" name="stock"/></td>
+                                                <td class="col-md-1.5 no-padding"><input type="text" class="form-control" name="bank"/></td>
+                                                <td class="col-md-0.5 no-padding"><input type="text" class="form-control" name="area"/></td>
+                                                <td class="col-md-1 no-padding"><input type="text" class="form-control" name="money"/></td>
+                                                <td class="col-md-1 no-padding"><input type="text" class="form-control" name="detail"/></td>
+                                            </tr>
+                                            <tr class="col-md-15">
+                                                <td class="td-checkbox"><div><input type="text" class="order_number" disabled="disabled" value="5"/><input type="checkbox" class="checkbox" id="201700005"/></div></td>
+                                                <td class="col-md-1 no-padding"><input type="text" class="form-control" name="person"/></td>
+                                                <td class="col-md-1.5 no-padding"><input type="text" class="form-control" name="IDnumber"/></td>
+                                                <td class="col-md-1 no-padding"><input type="text" class="form-control" name="address"/></td>
+                                                <td class="col-md-1 no-padding"><input type="text" class="form-control" name="telephone"/></td>
+                                                <td class="col-md-1 no-padding"><input type="text" class="form-control" name="cellphone"/></td>
+                                                <td class="col-md-0.5 no-padding"><input type="text" class="form-control" name="population"/></td>
+                                                <td class="col-md-1 no-padding"><input type="text" class="form-control" name="SCnumber"/></td>
+                                                <td class="col-md-0.5 no-padding"><input type="text" class="form-control" name="stock"/></td>
+                                                <td class="col-md-1.5 no-padding"><input type="text" class="form-control" name="bank"/></td>
+                                                <td class="col-md-0.5 no-padding"><input type="text" class="form-control" name="area"/></td>
+                                                <td class="col-md-1 no-padding"><input type="text" class="form-control" name="money"/></td>
+                                                <td class="col-md-1 no-padding"><input type="text" class="form-control" name="detail"/></td>
+                                            </tr>
+                                            <tr class="col-md-15">
+                                                <td class="td-checkbox"><div><input type="text" class="order_number" disabled="disabled" value="6"/><input type="checkbox" class="checkbox" id="201700006"/></div></td>
+                                                <td class="col-md-1 no-padding"><input type="text" class="form-control" name="person"/></td>
+                                                <td class="col-md-1.5 no-padding"><input type="text" class="form-control" name="IDnumber"/></td>
+                                                <td class="col-md-1 no-padding"><input type="text" class="form-control" name="address"/></td>
+                                                <td class="col-md-1 no-padding"><input type="text" class="form-control" name="telephone"/></td>
+                                                <td class="col-md-1 no-padding"><input type="text" class="form-control" name="cellphone"/></td>
+                                                <td class="col-md-0.5 no-padding"><input type="text" class="form-control" name="population"/></td>
+                                                <td class="col-md-1 no-padding"><input type="text" class="form-control" name="SCnumber"/></td>
+                                                <td class="col-md-0.5 no-padding"><input type="text" class="form-control" name="stock"/></td>
+                                                <td class="col-md-1.5 no-padding"><input type="text" class="form-control" name="bank"/></td>
+                                                <td class="col-md-0.5 no-padding"><input type="text" class="form-control" name="area"/></td>
+                                                <td class="col-md-1 no-padding"><input type="text" class="form-control" name="money"/></td>
+                                                <td class="col-md-1 no-padding"><input type="text" class="form-control" name="detail"/></td>
+                                            </tr>
+                                            <tr class="col-md-15">
+                                                <td class="td-checkbox"><div><input type="text" class="order_number" disabled="disabled" value="7"/><input type="checkbox" class="checkbox" id="201700007"/></div></td>
+                                                <td class="col-md-1 no-padding"><input type="text" class="form-control" name="person"/></td>
+                                                <td class="col-md-1.5 no-padding"><input type="text" class="form-control" name="IDnumber"/></td>
+                                                <td class="col-md-1 no-padding"><input type="text" class="form-control" name="address"/></td>
+                                                <td class="col-md-1 no-padding"><input type="text" class="form-control" name="telephone"/></td>
+                                                <td class="col-md-1 no-padding"><input type="text" class="form-control" name="cellphone"/></td>
+                                                <td class="col-md-0.5 no-padding"><input type="text" class="form-control" name="population"/></td>
+                                                <td class="col-md-1 no-padding"><input type="text" class="form-control" name="SCnumber"/></td>
+                                                <td class="col-md-0.5 no-padding"><input type="text" class="form-control" name="stock"/></td>
+                                                <td class="col-md-1.5 no-padding"><input type="text" class="form-control" name="bank"/></td>
+                                                <td class="col-md-0.5 no-padding"><input type="text" class="form-control" name="area"/></td>
+                                                <td class="col-md-1 no-padding"><input type="text" class="form-control" name="money"/></td>
+                                                <td class="col-md-1 no-padding"><input type="text" class="form-control" name="detail"/></td>
+                                            </tr>
+                                            <tr class="col-md-15">
+                                                <td class="td-checkbox"><div><input type="text" class="order_number" disabled="disabled" value="8"/><input type="checkbox" class="checkbox" id="201700008"/></div></td>
+                                                <td class="col-md-1 no-padding"><input type="text" class="form-control" name="person"/></td>
+                                                <td class="col-md-1.5 no-padding"><input type="text" class="form-control" name="IDnumber"/></td>
+                                                <td class="col-md-1 no-padding"><input type="text" class="form-control" name="address"/></td>
+                                                <td class="col-md-1 no-padding"><input type="text" class="form-control" name="telephone"/></td>
+                                                <td class="col-md-1 no-padding"><input type="text" class="form-control" name="cellphone"/></td>
+                                                <td class="col-md-0.5 no-padding"><input type="text" class="form-control" name="population"/></td>
+                                                <td class="col-md-1 no-padding"><input type="text" class="form-control" name="SCnumber"/></td>
+                                                <td class="col-md-0.5 no-padding"><input type="text" class="form-control" name="stock"/></td>
+                                                <td class="col-md-1.5 no-padding"><input type="text" class="form-control" name="bank"/></td>
+                                                <td class="col-md-0.5 no-padding"><input type="text" class="form-control" name="area"/></td>
+                                                <td class="col-md-1 no-padding"><input type="text" class="form-control" name="money"/></td>
+                                                <td class="col-md-1 no-padding"><input type="text" class="form-control" name="detail"/></td>
+                                            </tr>
+                                            <tr class="col-md-15">
+                                                <td class="td-checkbox"><div><input type="text" class="order_number" disabled="disabled" value="9"/><input type="checkbox" class="checkbox" id="201700009"/></div></td>
+                                                <td class="col-md-1 no-padding"><input type="text" class="form-control" name="person"/></td>
+                                                <td class="col-md-1.5 no-padding"><input type="text" class="form-control" name="IDnumber"/></td>
+                                                <td class="col-md-1 no-padding"><input type="text" class="form-control" name="address"/></td>
+                                                <td class="col-md-1 no-padding"><input type="text" class="form-control" name="telephone"/></td>
+                                                <td class="col-md-1 no-padding"><input type="text" class="form-control" name="cellphone"/></td>
+                                                <td class="col-md-0.5 no-padding"><input type="text" class="form-control" name="population"/></td>
+                                                <td class="col-md-1 no-padding"><input type="text" class="form-control" name="SCnumber"/></td>
+                                                <td class="col-md-0.5 no-padding"><input type="text" class="form-control" name="stock"/></td>
+                                                <td class="col-md-1.5 no-padding"><input type="text" class="form-control" name="bank"/></td>
+                                                <td class="col-md-0.5 no-padding"><input type="text" class="form-control" name="area"/></td>
+                                                <td class="col-md-1 no-padding"><input type="text" class="form-control" name="money"/></td>
+                                                <td class="col-md-1 no-padding"><input type="text" class="form-control" name="detail"/></td>
+                                            </tr>
+                                            <tr class="col-md-15">
+                                                <td class="td-checkbox"><div><input type="text" class="order_number" disabled="disabled" value="10"/><input type="checkbox" class="checkbox" id="201700010"/></div></td>
+                                                <td class="col-md-1 no-padding"><input type="text" class="form-control" name="person"/></td>
+                                                <td class="col-md-1.5 no-padding"><input type="text" class="form-control" name="IDnumber"/></td>
+                                                <td class="col-md-1 no-padding"><input type="text" class="form-control" name="address"/></td>
+                                                <td class="col-md-1 no-padding"><input type="text" class="form-control" name="telephone"/></td>
+                                                <td class="col-md-1 no-padding"><input type="text" class="form-control" name="cellphone"/></td>
+                                                <td class="col-md-0.5 no-padding"><input type="text" class="form-control" name="population"/></td>
+                                                <td class="col-md-1 no-padding"><input type="text" class="form-control" name="SCnumber"/></td>
+                                                <td class="col-md-0.5 no-padding"><input type="text" class="form-control" name="stock"/></td>
+                                                <td class="col-md-1.5 no-padding"><input type="text" class="form-control" name="bank"/></td>
+                                                <td class="col-md-0.5 no-padding"><input type="text" class="form-control" name="area"/></td>
+                                                <td class="col-md-1 no-padding"><input type="text" class="form-control" name="money"/></td>
+                                                <td class="col-md-1 no-padding"><input type="text" class="form-control" name="detail"/></td>
+                                            </tr>
+                                            <tr class="col-md-15">
+                                                <td class="td-checkbox"><div><input type="text" class="order_number" disabled="disabled" value="11"/><input type="checkbox" class="checkbox" id="201700011"/></div></td>
+                                                <td class="col-md-1 no-padding"><input type="text" class="form-control" name="person"/></td>
+                                                <td class="col-md-1.5 no-padding"><input type="text" class="form-control" name="IDnumber"/></td>
+                                                <td class="col-md-1 no-padding"><input type="text" class="form-control" name="address"/></td>
+                                                <td class="col-md-1 no-padding"><input type="text" class="form-control" name="telephone"/></td>
+                                                <td class="col-md-1 no-padding"><input type="text" class="form-control" name="cellphone"/></td>
+                                                <td class="col-md-0.5 no-padding"><input type="text" class="form-control" name="population"/></td>
+                                                <td class="col-md-1 no-padding"><input type="text" class="form-control" name="SCnumber"/></td>
+                                                <td class="col-md-0.5 no-padding"><input type="text" class="form-control" name="stock"/></td>
+                                                <td class="col-md-1.5 no-padding"><input type="text" class="form-control" name="bank"/></td>
+                                                <td class="col-md-0.5 no-padding"><input type="text" class="form-control" name="area"/></td>
+                                                <td class="col-md-1 no-padding"><input type="text" class="form-control" name="money"/></td>
+                                                <td class="col-md-1 no-padding"><input type="text" class="form-control" name="detail"/></td>
+                                            </tr>
+                                            <tr class="col-md-15">
+                                                <td class="td-checkbox"><div><input type="text" class="order_number" disabled="disabled" value="12"/><input type="checkbox" class="checkbox" id="201700012"/></div></td>
+                                                <td class="col-md-1 no-padding"><input type="text" class="form-control" name="person"/></td>
+                                                <td class="col-md-1.5 no-padding"><input type="text" class="form-control" name="IDnumber"/></td>
+                                                <td class="col-md-1 no-padding"><input type="text" class="form-control" name="address"/></td>
+                                                <td class="col-md-1 no-padding"><input type="text" class="form-control" name="telephone"/></td>
+                                                <td class="col-md-1 no-padding"><input type="text" class="form-control" name="cellphone"/></td>
+                                                <td class="col-md-0.5 no-padding"><input type="text" class="form-control" name="population"/></td>
+                                                <td class="col-md-1 no-padding"><input type="text" class="form-control" name="SCnumber"/></td>
+                                                <td class="col-md-0.5 no-padding"><input type="text" class="form-control" name="stock"/></td>
+                                                <td class="col-md-1.5 no-padding"><input type="text" class="form-control" name="bank"/></td>
+                                                <td class="col-md-0.5 no-padding"><input type="text" class="form-control" name="area"/></td>
+                                                <td class="col-md-1 no-padding"><input type="text" class="form-control" name="money"/></td>
+                                                <td class="col-md-1 no-padding"><input type="text" class="form-control" name="detail"/></td>
+                                            </tr>
+                                            <tr class="col-md-15">
+                                                <td class="no-padding"><div><input type="button" class="btn-default" id="total" value="合计"/></div></td>
+                                                <td class="col-md-1 no-padding"><input type="text" class="form-control" disabled="disabled" name="person"/></td>
+                                                <td class="col-md-1.5 no-padding"><input type="text" class="form-control" disabled="disabled" name="IDnumber"/></td>
+                                                <td class="col-md-1 no-padding"><input type="text" class="form-control" disabled="disabled" name="address"/></td>
+                                                <td class="col-md-1 no-padding"><input type="text" class="form-control" disabled="disabled" name="telephone"/></td>
+                                                <td class="col-md-1 no-padding"><input type="text" class="form-control" disabled="disabled" name="cellphone"/></td>
+                                                <td class="col-md-0.5 no-padding"><input type="text" class="form-control" disabled="disabled" name="population"/></td>
+                                                <td class="col-md-1 no-padding"><input type="text" class="form-control" disabled="disabled" name="SCnumber"/></td>
+                                                <td class="col-md-0.5 no-padding"><input type="text" class="form-control" disabled="disabled" name="stock"/></td>
+                                                <td class="col-md-1.5 no-padding"><input type="text" class="form-control" disabled="disabled" name="bank"/></td>
+                                                <td class="col-md-0.5 no-padding"><input type="text" class="form-control" disabled="disabled" name="area"/></td>
+                                                <td class="col-md-1 no-padding"><input type="text" class="form-control" disabled="disabled" name="money"/></td>
+                                                <td class="col-md-1 no-padding"><input type="text" class="form-control" name="detail"/></td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div>
+                                        <table id="table-action">
+                                            <tr>
+                                                <td>
+                                                    <input type="button" class="btn btn-info" id="select-all" value="全选"/>
+                                                    <input type="button" class="btn btn-info" id="select-invert" value="反选"/>
+                                                    <input type="hidden" class="check-pool"/>
+                                                </td>
+                                                <td>
+                                                    填表人：
+                                                </td>
+                                                <td>
+                                                    <div>
+                                                        <input type="text" name="writer" class="form-control"/>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                        <div id="div-action">
+                                            <input type="button" class="btn btn-success" id="pass" value="确认修改"/>
+                                            <input type="button" class="btn btn-danger" id="reset" value="重新修改"/>
+                                        </div>
+                                        <p></p>
+                                    </div>
+
+                                </div>
+                                <div class="panel-body no-padding">
+                                    <input type="button" class="col-md-3" style="visibility: hidden"/>
+                                    <textarea class="col-md-6" rows="3" cols="10" id="textarea-explain"></textarea>
+                                    <input type="button" class="col-md-3" style="visibility: hidden"/>
+                                </div>
+                                <div class="col-md-15">
+                                    <input type="checkbox" id="check-explain"/>我已阅读以上条款并遵守相关规定
+                                </div>
+                                <div class="col-md-15" id="div-upload">
+                                    <input type="button" class="col-md-5" style="visibility: hidden"/>
+                                    <input type="submit" class="btn btn-default col-md-2" id="upload" disabled="disabled" value="提交审核"/>
+                                    <input type="button" class="col-md-5" style="visibility: hidden"/>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- END MAIN CONTENT -->
+    </div>
+    <!-- END MAIN -->
+    <div class="clearfix"></div>
+
+    <!--<div class="clearfix"></div>-->
+</div>
+<!-- END WRAPPER -->
+
+<!-- Javascript -->
+<div th:include="fragments/jsTag" th:remove="tag">REPLACE BEFORE COMMITTING</div>
+
+</body>
+<script type="text/javascript">
+
+    $(document).ready(function() {
+        $(":file").filestyle();
+        $("[data-toggle='tooltip']").tooltip();
+        var validate_result;
+
+        $('.tbody-last input,#date,.info-group input,.table-hover input,#table-action input,.select-group select,.select-zone').bind('focusout',function () {
+            var that = $(this);
+            var input_name = $(this).attr('name');
+            validate_empty(input_name,that);
+        }).bind('input propertychange',function () {
+            var that = $(this);
+            var input_name = $(this).attr('name');
+            validate_empty(input_name,that);
+        });
+
+        $('input[name="date"]').bind('focusout',function () {
+            var that = $(this);
+            validate_date('focusout',that);
+        }).bind('input propertychange',function () {
+            var that = $(this);
+            validate_date('propertychange',that);
+        });
+
+        $('.tbody-last input[name="IDnumber"]').bind('focusout',function () {
+            var that = $(this);
+            validate_IDnumber('focusout',that);
+        }).bind('input propertychange',function () {
+            var that = $(this);
+            validate_IDnumber('propertychange',that);
+        });
+
+
+        $('.tbody-last input[name="cellphone"]').bind('focusout',function () {
+            var that = $(this);
+            validate_cellphone('focusout',that);
+        }).bind('input propertychange',function () {
+            var that = $(this);
+            validate_cellphone('propertychange',that);
+        });
+
+        $('.tbody-last input[name="bank"]').bind('focusout',function () {
+            var that = $(this);
+            validate_bank('focusout',that);
+        }).bind('input propertychange',function () {
+            var that = $(this);
+            validate_bank('propertychange',that);
+        });
+
+        $('.checkbox').click(function () {
+            var pool = $('.check-pool').val();
+            if($(this).is(':checked')) {
+                $('.check-pool').attr('value', pool + "," + $(this).attr('id'));
+            }else{
+                $('.check-pool').attr('value', pool.replace($(this).attr('id'),'') );
+            }
+        });
+        
+        $('#select-all').click(function () {
+            if($(this).val()==='全选') {
+                $('.checkbox').prop("checked", true);
+                change_btn_class('default');
+            }else{
+                $('.checkbox').prop("checked", false);
+                change_btn_class('info');
+            }
+        });
+
+        $('#select-invert').click(function () {
+            $(".checkbox").each(function () {
+                $(this).prop("checked", !$(this).prop("checked"));
+            });
+            if($("input:checkbox:checked").length== $("input:checkbox").length){
+                change_btn_class('default');
+            }else{
+                change_btn_class('info');
+            }
+        });
+        
+        $('#pass').click(function () {
+            $('input:checkbox:checked').each(function() {
+                $(this).parent().parent().parent().find("input[class='form-control']").attr('disabled',true);
+                $(this).parent().parent().parent().find("input[class='form-control']").css('background','#cccccc');
+            });
+        });
+
+        $('#reset').click(function () {
+            $('input:checkbox:checked').each(function() {
+                $(this).parent().parent().parent().find("input[class='form-control']").attr('disabled',false);
+                $(this).parent().parent().parent().find("input[class='form-control']").css('background','rgba(0,0,0,0)');
+            });
+        });
+
+        $('#check-explain').click(function () {
+            if ($(this).is(':checked')) {
+                $('#upload').attr('disabled', false);
+                $('#upload').attr('class', 'btn btn-primary col-md-2');
+            }else{
+                $('#upload').attr('disabled', true);
+                $('#upload').attr('class', 'btn btn-default col-md-2');
+            }
+        });
+
+        $('#textarea-explain').val('\n①省、市级生态林要分开填表\n②集体留成与分配个人的合计数应与补偿总额相等，分配给个人总额与分配给个人明细合（累）计相等\n③本表一式5份，镇林业站、镇财政所、县林业局、财政局各一份，自存一份');
+    } );
+
+    /**
+     * 验证空值
+     * @param obj
+     * @param type
+     */
+    function validate_empty(type,obj) {
+        var tooltip_msg;
+        if($(obj).val()==null||$(obj).val()==""||$(obj).val()=="请选择") {
+            $(obj).css('border-color','red');
+            if(type==='detail'||type==='telephone'){
+                $(obj).css('border-color','');
+                $(obj).css('outline','red');
+            }
+
+            switch (type){
+                case 'zone':
+                    $(obj).attr('data-original-title','请选择省/市');
+                    break;
+                case 'date':
+                    $(obj).attr('data-original-title','填表日期不能为空');
+                    break;
+                case 'select-town':
+                    $(obj).attr('data-original-title','请选择所在乡镇');
+                    break;
+                case 'select-village':
+                    $(obj).attr('data-original-title','请选择所在村委');
+                    break;
+                case 'village-group':
+                    $(obj).attr('data-original-title','村小组不能为空');
+                    break;
+                case 'all-households':
+                    $(obj).attr('data-original-title','总户数不能为空');
+                    break;
+                case 'all-population':
+                    $(obj).attr('data-original-title','总人口不能为空');
+                    break;
+                case 'all-area':
+                    $(obj).attr('data-original-title','补偿面积不能为空');
+                    break;
+                case 'all-money':
+                    $(obj).attr('data-original-title','补偿总额不能为空');
+                    break;
+                case 'person':
+                    $(obj).attr('data-original-title','姓名不能为空');
+                    break;
+                case 'IDnumber':
+                    $(obj).attr('data-original-title','身份证不能为空');
+                    break;
+                case 'address':
+                    $(obj).attr('data-original-title','地址不能为空');
+                    break;
+                case 'cellphone':
+                    $(obj).attr('data-original-title','手机号码不能为空');
+                    break;
+                case 'population':
+                    $(obj).attr('data-original-title','家庭人口不能为空');
+                    break;
+                case 'SCnumber':
+                    $(obj).attr('data-original-title','股权证号不能为空');
+                    break;
+                case 'stock':
+                    $(obj).attr('data-original-title','股份数不能为空');
+                    break;
+                case 'bank':
+                    $(obj).attr('data-original-title','银行卡号不能为空');
+                    break;
+                case 'bank-position':
+                    $(obj).attr('data-original-title','开户行不能为空');
+                    break;
+                case 'area':
+                    $(obj).attr('data-original-title','面积不能为空');
+                    break;
+                case 'money':
+                    $(obj).attr('data-original-title','金额不能为空');
+                    break;
+                case 'writer':
+                    $(obj).attr('data-original-title','填表人不能为空');
+                    break;
+                default:;
+            }
+            $(obj).tooltip('show');
+        }else{
+            $(obj).css('border-color','');
+            $(obj).css('outline','blue');
+            $(obj).attr('data-original-title','');
+            $(obj).tooltip('hide');
+        }
+
+    }
+
+    /**
+     * 验证日期
+     * @param event
+     * @param obj
+     */
+    function validate_date(event,obj) {
+        var reg = /^(\d{4})(-\d{2})(-\d{2})/;
+        var date = $(obj).val();
+        var date_length = $(obj).length;
+
+        if(reg.test(date) === false) {
+            $(obj).css('border-color','red');
+            if(event==='focusout') {
+                if (date_length > 0) {
+                    $(obj).attr('data-original-title', '日期格式有误');
+                    $(obj).tooltip('show');
+                }
+            }
+        }else{
+            $(obj).css('border-color','');
+            $(obj).attr('data-original-title','');
+            $(obj).tooltip('hide');
+        }
+    }
+
+    /**
+     * 验证身份证
+     * @param event
+     * @param obj
+     */
+    function validate_IDnumber(event,obj) {
+        var reg = /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/;
+        var IDnumber = $(obj).val();
+        var IDnumber_length = $(obj).val().length;
+        if(reg.test(IDnumber) === false) {
+            $(obj).css('border-color','red');
+            if(event==='focusout') {
+                if(IDnumber_length>0) {
+                    $(obj).attr('data-original-title', '身份证格式有误');
+                    $(obj).tooltip('show');
+                }
+            }
+        }else{
+            $(obj).css('border-color','');
+            $(obj).attr('data-original-title','');
+            $(obj).tooltip('hide');
+        }
+        return IDnumber_length;
+    }
+
+    /**
+     * 验证手机号码
+     * @param event
+     * @param obj
+     */
+    function validate_cellphone(event,obj) {
+        var reg =  /^1[3|4|5|7|8]\d{9}$/;
+        var cellphone = $(obj).val();
+        var cellphone_length = $(obj).val().length;
+
+        if(reg.test(cellphone) === false) {
+            $(obj).css('border-color','red');
+            if(event==='focusout') {
+                if (cellphone_length > 0) {
+                    $(obj).attr('data-original-title', '手机号码格式有误');
+                    $(obj).tooltip('show');
+                }
+            }
+        }else{
+            $(obj).css('border-color','');
+            $(obj).attr('data-original-title','');
+            $(obj).tooltip('hide');
+        }
+    }
+
+    /**
+     * 验证农商银行帐号
+     * @param event
+     * @param obj
+     */
+    function validate_bank(event,obj) {
+
+        var reg_srcb = /^(622128|622129|623035|)\d{10}$/; //深圳农商银行
+        var reg_gzrcu = /^(909810|940035|621522|622439)\d{12}$/;  //广州农商银行
+        var reg_drcbcl_1 =  /^(622328|940062|623038)\d{13}$/;  //东莞农商银行
+        var reg_drcbcl_2 = /^(625288|625888)\d{10}$/;  //东莞农商银行
+        var reg_gzcb = /^(622439)\d{12}$/;  //广州农商银行
+
+        var bank = $(obj).val();
+        var bank_length = $(obj).val().length;
+
+        if(reg_srcb.test(bank) === true|| reg_gzrcu.test(bank) === true ||reg_drcbcl_1.test(bank)===true || reg_drcbcl_2.test(bank)=== true || reg_gzcb.test(bank) === true) {
+            $(obj).css('border-color','');
+            $(obj).attr('data-original-title','');
+            $(obj).tooltip('hide');
+        }else{
+            $(obj).css('border-color','red');
+            if(event==='focusout') {
+                if (bank_length > 0) {
+                    $(obj).attr('data-original-title', '请输入正确的农商银行号码');
+                    $(obj).tooltip('show');
+                }
+            }
+        }
+    }
+
+    /**
+     *
+     * @param msg   修改Boostrap btn样式
+     * */
+    function change_btn_class(msg){
+        switch (msg) {
+            case 'default':
+                $('#select-all').val('取消全选');
+                $('#select-all').attr('class', 'btn btn-default');
+                break;
+            case 'info':
+                $('#select-all').val('全选');
+                $('#select-all').attr('class', 'btn btn-info');
+                break;
+            default: ;break;
+        }
+    }
+</script>
+</html>
