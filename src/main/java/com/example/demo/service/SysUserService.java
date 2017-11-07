@@ -7,7 +7,13 @@ import java.util.List;
 
 public interface SysUserService {
 
-    public List<SysUser> selectUserList();
+    Page<SysUser> selectUserList(SysUser sysUser,int page,int size);
 
-    public Page<SysUser> getUserList(Integer page, Integer size);
+    Page<SysUser> getUserList(Integer page, Integer size);
+
+    void saveUser(SysUser sysUser);
+
+    void deleteUser(long id);
+
+    void updateUser(SysUser sysUser);
 }

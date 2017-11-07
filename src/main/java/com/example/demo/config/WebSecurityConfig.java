@@ -38,9 +38,45 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
      */
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests().antMatchers("/css/**","fonts/**","/login","js/**")
+
+        /*http.authorizeRequests().antMatchers("/css/**","fonts/**","js/**").permitAll().
                 .authenticated()
                 .and().formLogin().loginPage("/login").failureUrl("/login?error").permitAll().and()
-                .logout().permitAll();
+                .logout().permitAll();*/
+
+
+        /*http.authorizeRequests().anyRequest().permitAll()
+                .and().formLogin().loginPage("/login")
+                .defaultSuccessUrl("/index").permitAll();
+
+        http.csrf().disable();*/
+       http.authorizeRequests().antMatchers("/css/**","/fonts/**","/js/**").permitAll()
+                .anyRequest().authenticated()
+                .and().formLogin().loginPage("/login")
+                .defaultSuccessUrl("/index").permitAll()
+                .and().logout().logoutSuccessUrl("/login").permitAll();
+
     }
+
+    /*
+    *     @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http.authorizeRequests()
+
+        .antMatchers(StaticParams.PATHREGX.NOAUTH,
+                StaticParams.PATHREGX.CSS,StaticParams.PATHREGX.JS,StaticParams.PATHREGX.IMG).permitAll()//无需访问权限
+
+        .antMatchers(StaticParams.PATHREGX.AUTHADMIN).hasAuthority(StaticParams.USERROLE.ROLE_ADMIN)//admin角色访问权限
+
+        .antMatchers(StaticParams.PATHREGX.AUTHUSER).hasAuthority(StaticParams.USERROLE.ROLE_USER)//user角色访问权限
+
+        .anyRequest()//all others request authentication
+        .authenticated()
+        .and()
+        .formLogin().loginPage("/login").permitAll()
+        .and()
+        .logout().permitAll();
+    }
+    *
+    * */
 }
