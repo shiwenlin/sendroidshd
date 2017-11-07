@@ -25,13 +25,13 @@ public class UserController {
      * @param model
      * @return
      */
-    @RequestMapping(value = "/user_list",method = RequestMethod.GET)
+/*    @RequestMapping(value = "/user_list",method = RequestMethod.GET)
     public String getUserList(Model model, @RequestParam(defaultValue = "1") Integer page,
                               @RequestParam(defaultValue = "10") Integer size){
         Page<SysUser> users = sysUserService.getUserList(page,size);
         model.addAttribute("userList",users);
         return "case/user_list";
-    }
+    }*/
 
 
     /**
@@ -39,7 +39,7 @@ public class UserController {
      * @param sysUser
      * @return
      */
-    @RequestMapping(value = "/user_query",method = RequestMethod.GET)
+    @RequestMapping(value = "/user_list",method = RequestMethod.GET)
     public String selectUser(Model model,SysUser sysUser,@RequestParam(defaultValue = "1") Integer page,
                              @RequestParam(defaultValue = "10") Integer size){
         Page<SysUser> users = sysUserService.selectUserList(sysUser, page, size);
