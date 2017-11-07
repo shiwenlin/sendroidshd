@@ -16,6 +16,9 @@ html {
 .nav .open > a:focus {
     background-color: transparent;
 }
+.error{
+    color: red;
+}
 /*-------------------------------*/
 /*           Wrappers            */
 /*-------------------------------*/
@@ -354,3 +357,7 @@ td input {
     min-width: 120px;
 }
 /*//data*/
+
+/*index*/
+
+/*//index*/

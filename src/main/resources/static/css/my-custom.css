@@ -220,14 +220,14 @@
     padding-left: 2vw;
 }
 
-.form-control{
-    outline: #0ea0db !important;
-    padding: 0!important;
-    margin: 0!important;
-    border-radius: 0px;
-    background: rgba(0,0,0,0)!important;
-    box-shadow: 0px 0px 0px;
-}
+/*.form-control{*/
+    /*outline: #0ea0db !important;*/
+/*padding: 0!important;*/
+/*margin: 0!important;*/
+/*border-radius: 0px;*/
+/*background: rgba(0,0,0,0)!important;*/
+/*box-shadow: 0px 0px 0px;*/
+/*}*/
 
 .col-md-1,.no-padding,.td-checkbox{
     border: 0!important;
