@@ -28,7 +28,7 @@
                                 </div>
                             </div>
                             <div class="panel-body">
-                                <form class="form-condition" th:action="@{/user/user_query}"  th:method="post" method="get">
+                                <form class="form-condition" th:action="@{/user/user_list}"  th:method="get" method="get">
 
                                     <div class="form-group col-sm-2">
                                         <label>乡镇</label>
@@ -45,7 +45,7 @@
 
                                     <div class="form-group col-sm-2">
                                         <label>电话</label>
-                                        <input type="text" name="phone" class="form-control" />
+                                        <input th:value="${query.phone}" type="text" name="phone" class="form-control" />
                                     </div>
 
 

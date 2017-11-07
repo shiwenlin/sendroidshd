@@ -39,7 +39,7 @@ public class SysUserServiceImpl implements SysUserService{
                                          CriteriaQuery<?> query, CriteriaBuilder criteriaBuilder) {
                 List<Predicate> predicates = new ArrayList<>();
                 //暂时添加一个电话
-                if (StringUtils.isBlank(sysUser.getPhone())) {
+                if (!StringUtils.isBlank(sysUser.getPhone())) {
                     predicates.add(criteriaBuilder.like(root.get("phone").as(String.class), "%" + sysUser.getPhone() + "%"));
                 }
 

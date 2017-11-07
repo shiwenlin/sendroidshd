@@ -45,16 +45,16 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
                 .logout().permitAll();*/
 
 
-        /*http.authorizeRequests().anyRequest().permitAll()
+        http.authorizeRequests().anyRequest().permitAll()
                 .and().formLogin().loginPage("/login")
                 .defaultSuccessUrl("/index").permitAll();
 
-        http.csrf().disable();*/
-       http.authorizeRequests().antMatchers("/css/**","/fonts/**","/js/**").permitAll()
+        http.csrf().disable();
+      /* http.authorizeRequests().antMatchers("/css/**","/fonts/**","/js/**").permitAll()
                 .anyRequest().authenticated()
                 .and().formLogin().loginPage("/login")
                 .defaultSuccessUrl("/index").permitAll()
-                .and().logout().logoutSuccessUrl("/login").permitAll();
+                .and().logout().logoutSuccessUrl("/login").permitAll();*/
 
     }
 

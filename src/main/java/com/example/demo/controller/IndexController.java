@@ -20,7 +20,7 @@ public class IndexController {
 
     @RequestMapping(value = "/index",method = RequestMethod.GET)
     public String case_index() {
-        return "index";
+        return "case/index";
     }
 
     @RequestMapping(value = "/data_view",method = RequestMethod.GET)
