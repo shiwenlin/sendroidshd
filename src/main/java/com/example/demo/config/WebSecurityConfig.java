@@ -1,6 +1,6 @@
 package com.example.demo.config;
 
-import com.example.demo.service.CustomUserServiceImpl;
+import com.example.demo.service.UserDetailServiceImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -17,7 +17,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 
     @Bean
     UserDetailsService customUserService() {
-        return  new CustomUserServiceImpl();
+        return  new UserDetailServiceImpl();
     }
 
     @Override

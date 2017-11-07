@@ -3,16 +3,22 @@ package com.example.demo.service;
 import com.example.demo.entity.SysUser;
 import com.example.demo.repository.SysUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import java.beans.Transient;
 import java.util.List;
 
 
-@Service
-public  class CustomUserServiceImpl implements UserDetailsService{
+
+public  class UserDetailServiceImpl implements UserDetailsService{
 
     @Autowired
     private SysUserRepository sysUserRepository;
@@ -27,14 +33,8 @@ public  class CustomUserServiceImpl implements UserDetailsService{
             System.out.println("s:"+s);
             System.out.println("username:"+sysUser.getUsername()+";password:"+sysUser.getPassword());
             return sysUser;
-
     }
 
-    public List<SysUser> getUserList(){
-       return sysUserRepository.findAll();
-    }
 
-    public long getUserCount(){
-        return sysUserRepository.count();
-    }
+
 }
