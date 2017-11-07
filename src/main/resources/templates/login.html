@@ -29,12 +29,14 @@
                                 <p th:if="${param.error}"  class="bg-danger">账号或密码错误</p>
                                 <div class="input-group" style="margin: 12px">
                                     <label for="username" class="input-group-addon">账号</label>
-                                    <input type="text" class="form-control" id="username" name="username" value="" placeholder="账号"/>
+                                    <input class="form-control" id="username" name="username" placeholder="admin"
+                                           th:required="true" th:autofocus="true"/>
                                 </div>
-                                <div class="input-group" style="margin: 12px">
+                                <div class="input-group form-group" style="margin: 12px">
                                     <label for="password" class="input-group-addon">密码</label>
                                     <input type="password" class="form-control" id="password" name="password" placeholder="密码"/>
                                 </div>
+
                             </div>
                         </div>
                     <div class="panel-footer">
