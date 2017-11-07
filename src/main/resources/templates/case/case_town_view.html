@@ -219,7 +219,9 @@
                 case '审核通过':condition=5;break;
                 default: ;break;
             }
-            window.location.href = "case_progress?state="+condition;
+            if(condition!=null) {
+                window.location.href = "case_progress?state=" + condition;
+            }
         });
     });
 </script>

@@ -37,7 +37,6 @@ public class SysUser implements UserDetails {
     @DateTimeFormat(pattern = "MM/dd/yyyy")
     private Date createTime;
 
-
     private String name;
 
 
