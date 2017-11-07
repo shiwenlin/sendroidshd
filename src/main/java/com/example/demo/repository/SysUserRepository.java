@@ -8,5 +8,4 @@ import java.util.List;
 public interface SysUserRepository extends JpaRepository<SysUser,Long> {
     SysUser findByUsername(String username);
 
-
 }

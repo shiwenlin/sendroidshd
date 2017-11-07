@@ -56,7 +56,6 @@
 			<artifactId>spring-boot-starter-tomcat</artifactId>
 		</dependency>
 
-
 		<dependency>
 			<groupId>org.thymeleaf.extras</groupId>
 			<artifactId>thymeleaf-extras-springsecurity4</artifactId>

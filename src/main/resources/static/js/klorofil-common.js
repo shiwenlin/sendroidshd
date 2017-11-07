@@ -203,6 +203,20 @@ $(document).ready(function() {
 			toastr['info']($message);
 		});
 
+        $('.user-operation').on('click',function () {
+            var state = $(this).parent().prev().children().attr('value');
+            var condition;
+
+            switch (state){
+                case '林业审核中':condition=2;break;
+                case '财政审核中':condition=3;break;
+                case '银行发放中':condition=4;break;
+                case '审核通过':condition=5;break;
+                default: ;break;
+            }
+            window.location.href = "case_progress?state="+condition;
+        });
+
 	}
 
 });
