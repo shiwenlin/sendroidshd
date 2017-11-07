@@ -5,45 +5,242 @@
 <head th:include="fragments/headTag :: headTag"><!-- REPLACE BEFORE COMMITTING --></head>
 <body>
 <!-- WRAPPER -->
-<div id="wrapper">
-    <!-- NAVBAR -->
-    <div th:include="fragments/navBar :: header" th:remove="tag">REPLACE BEFORE COMMITTING</div>
-    <!-- END NAVBAR -->
-    <!-- LEFT SIDEBAR -->
-    <div th:include="fragments/sidebarTag" th:remove="tag">REPLACE BEFORE COMMITTING</div>
-    <!-- END LEFT SIDEBAR -->
-    <!-- MAIN -->
-    <div class="main">
-        <!-- MAIN CONTENT -->
-        <div class="main-content">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="panel">
+    <div id="wrapper">
+        <!-- NAVBAR -->
+        <div th:include="fragments/navBar :: header" th:remove="tag">REPLACE BEFORE COMMITTING</div>
+        <!-- END NAVBAR -->
+        <!-- LEFT SIDEBAR -->
+        <div th:include="fragments/sidebarTag" th:remove="tag">REPLACE BEFORE COMMITTING</div>
+        <!-- END LEFT SIDEBAR -->
+        <!-- MAIN -->
+        <div class="main">
+            <!-- MAIN CONTENT -->
+            <div class="main-content">
+                <div class="container-fluid">
+                    <form class="row">
+                        <div class="col-md-12">
+                            <div class="panel">
+                                <div class="panel-heading ph1">
+                                    <h3 class="text-center"><b>财政专项资金用款计划审批表</b></h3>
+                                    <div class="right">
+                                        <button type="button" class="btn-toggle-collapse"><i class="lnr lnr-chevron-up"></i></button>
+                                    </div>
+                                </div>
+                                <!-- PANEL-BODY-1 -->
+                                <div class="panel-body new_case_pb">
+                                    <div class="input-group input-group-left col-md-2">
+                                        <span class="input-group-addon">资金性质：</span>
+                                        <input class="form-control" tabindex="1"/>
+                                    </div>
+                                    <input type="button" class="btn-alpha col-md-3"/>
+                                    <div class="input-group input-group-middle col-md-2">
+                                        <span class="input-group-addon">时间：</span>
+                                        <input type="text" onfocus="(this.type='date')" name="date" class="form-control" placeholder="yyyy-mm-dd" tabindex="2"/>
+                                    </div>
+                                    <input type="button" class="btn-alpha col-md-3"/>
+                                    <div class="input-group input-group-right col-md-2">
+                                        <span class="input-group-addon">编号：</span>
+                                        <input class="form-control" tabindex="3"/>
+                                    </div>
 
+                                    <div class="div-list-first">
+                                        <button class="col-md-12 list-title">财政直接支付</button>
+                                        <div class="col-md-6">
+                                            申请用款单位：惠东县林业局
+                                            <p></p>
+                                            <p></p>
+                                            <p>(公章)</p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="input-group input-group-list1 col-md-6">
+                                                <span class="input-group-addon">收款单位：</span>
+                                                <a>补偿清单12页</a>
+                                            </div>
+                                            <div class="input-group input-group-list1 col-md-6">
+                                                <span class="input-group-addon">银行帐号：</span>
+                                                <input class="form-control" tabindex="4"/>
+                                            </div>
+                                            <div class="input-group input-group-list1 col-md-6">
+                                                <span class="input-group-addon">&nbsp;开&nbsp;户&nbsp;行：</span>
+                                                <input class="form-control" tabindex="5"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- END PANEL-BODY-1 -->
+                            </div>
+                            <div class="panel">
+                                <div class="panel-heading ph2">
+                                    <h6 class="text-left"><b>科目</b></h6>
+                                    <div class="right">
+                                        <button type="button" class="btn-toggle-collapse"><i class="lnr lnr-chevron-up"></i></button>
+                                    </div>
+                                </div>
+                                <div class="panel-body new_case_pb">
+                                    <div class="div-list-second">
+                                        <div class="list-left">
+                                            <table class="list-table col-md-12">
+                                                <thead>
+                                                <tr class="list-title2 ">
+                                                    <th class="col-lg-2 "><input  type="text" class="form-text-title"  disabled="disabled" value="编号"/></th>
+                                                    <th class="col-lg-6 "><input  type="text" class="form-text-title"  disabled="disabled" value="科目名称"/></th>
+                                                    <th class="col-lg-4 "><input  type="text" class="form-text-title"  disabled="disabled" value="金额（元）"/></th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr class="list-body">
+                                                    <td class="col-lg-2"><input type="text" class="form-control form-control-type1" placeholder="256487"/></td>
+                                                    <td class="col-lg-6"><input type="text" class="form-control form-control-type1" placeholder="农林水务-林业-生态公益林补偿"/></td>
+                                                    <td class="col-lg-4"><input type="text" class="form-control form-control-type1" placeholder="12323"/></td>
+                                                </tr>
+                                                <tr class="list-body">
+                                                    <td class="col-lg-2"><input type="text" class="form-control form-control-type1"/></td>
+                                                    <td class="col-lg-6"><input type="text" class="form-control form-control-type1"/></td>
+                                                    <td class="col-lg-4"><input type="text" class="form-control form-control-type1"/></td>
+                                                </tr>
+                                                <tr class="list-body">
+                                                    <td class="col-lg-2"><input type="text" class="form-control form-control-type1"/></td>
+                                                    <td class="col-lg-6"><input type="text" class="form-control form-control-type1"/></td>
+                                                    <td class="col-lg-4"><input type="text" class="form-control form-control-type1"/></td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                            <table class="list-table col-md-12">
+                                                <tfoot>
+                                                <tr class="list-foot ">
+                                                    <td class="col-lg-8"><input type="button" class="btn-total"  disabled="disabled" value="合计"/></td>
+                                                    <td><input type="text" class="form-control form-control-type1"/></td>
+                                                </tr>
+                                                </tfoot>
+                                            </table>
+                                            <div class="input-group input-group-left col-md-12">
+                                                <span class="input-group-addon">用途：</span>
+                                                <input class="form-control" tabindex="1"/>
+                                            </div>
+                                            <table class="list-table col-lg-12">
+                                                <tr>
+                                                    <td class="col-lg-2"><input type="button" class="btn-total"  disabled="disabled" value="申请单位负责人"/></td>
+                                                    <td class="col-lg-2"><input type="text" class="form-control form-control-type1"/></td>
+                                                    <td class="col-lg-2"><input type="button" class="btn-total"  disabled="disabled" value="经办人"/></td>
+                                                    <td class="col-lg-2"><input type="text" class="form-control form-control-type1"/></td>
+                                                    <td class="col-lg-2"><input type="button" class="btn-total"  disabled="disabled" value="联系电话"/></td>
+                                                    <td class="col-lg-2"><input type="text" class="form-control form-control-type1"/></td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel">
+                                <div class="panel-heading ph2">
+                                    <h6 class="text-left"><b>财政局审批意见</b></h6>
+                                    <div class="right">
+                                        <button type="button" class="btn-toggle-collapse"><i class="lnr lnr-chevron-up"></i></button>
+                                    </div>
+                                </div>
+                                <div class="panel-body new_case_pb">
+                                    <div class="tr1">
+                                        <button>业务股审核意见</button>
+                                    </div>
+                                    <div class="tr2">
+                                        <input type="button" class="seal" value="盖章"/>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">时间：</span>
+                                            <input type="text" onfocus="(this.type='date')" name="date" class="form-control" placeholder="yyyy-mm-dd" tabindex="2"/>
+                                        </div>
+                                    </div>
+                                    <div class="tr3">
+                                        <div class="input-group input-group-right">
+                                            <span class="input-group-addon">&nbsp;负&nbsp;责&nbsp;人：</span>
+                                            <input class="form-control"/>
+                                        </div>
+                                        <div class="input-group input-group-right">
+                                            <span class="input-group-addon">&nbsp;经&nbsp;办&nbsp;人：</span>
+                                            <input class="form-control"/>
+                                        </div>
+                                        <div class="input-group input-group-right">
+                                            <span class="input-group-addon">审核金额：</span>
+                                            <input class="form-control"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel-body new_case_pb">
+                                    <div class="tr1">
+                                        <button>主管领导意见</button>
+                                    </div>
+                                    <div class="tr2-long">
+                                        <input type="button" class="seal" value=""/>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">时间：</span>
+                                            <input type="text" onfocus="(this.type='date')" name="date" class="form-control" placeholder="yyyy-mm-dd" tabindex="2"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel-body new_case_pb">
+                                    <div class="tr1">
+                                        <button>国库批复</button>
+                                    </div>
+                                    <div class="tr2">
+                                        <input type="button" class="seal" value="盖章"/>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">时间：</span>
+                                            <input type="text" onfocus="(this.type='date')" name="date" class="form-control" placeholder="yyyy-mm-dd" tabindex="2"/>
+                                        </div>
+                                    </div>
+                                    <div class="tr3">
+                                        <div class="input-group input-group-left">
+                                            <span class="input-group-addon">&nbsp;负&nbsp;责&nbsp;人：</span>
+                                            <input class="form-control"/>
+                                        </div>
+                                        <div class="input-group input-group-left">
+                                            <span class="input-group-addon">&nbsp;经&nbsp;办&nbsp;人：</span>
+                                            <input class="form-control"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel-body new_case_pb">
+                                    <div class="tr1">
+                                        <button>核拨金额</button>
+                                    </div>
+                                    <div class="tr2-long">
+                                        <div class="input-group input-group-half">
+                                            <span class="input-group-addon">(RMB)￥：</span>
+                                            <input class="form-control"/>
+                                        </div>
+                                        <div class="input-group input-group-half">
+                                            <span class="input-group-addon">拨款人(签章)：</span>
+                                            <input class="form-control"/>
+                                        </div>
+                                        <div class="input-group input-group-left">
+                                            <span class="input-group-addon">(大&nbsp;写)元：</span>
+                                            <input class="form-control"/>
+                                        </div>
+                                    </div>
+                                    <div class="detail">
+                                        <p>说明：</p>
+                                        <p>1、申请用款单位必须严格核实收款人(单位)的账户要素，并填写清楚</p>
+                                        <p>2、申请用款单位凭此审批表作直接支付的记账依据，列收列支</p>
+                                        <p>3、本表一式三份，①申请用款单位（记账凭证）②财政局国库部门（拨款依据）③财政局经办业务股（存查）</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-
+                    </form>
                 </div>
             </div>
+            <!-- END MAIN CONTENT -->
         </div>
-        <!-- END MAIN CONTENT -->
+        <!-- END MAIN -->
     </div>
-    <!-- END MAIN -->
+    <!-- END WRAPPER -->
     <div class="clearfix"></div>
-
-    <!--<div class="clearfix"></div>-->
-</div>
-<!-- END WRAPPER -->
-
-<!-- Javascript -->
-<div th:include="fragments/jsTag" th:remove="tag">REPLACE BEFORE COMMITTING</div>
+    <!-- Javascript -->
+    <div th:include="fragments/jsTag" th:remove="tag">REPLACE BEFORE COMMITTING</div>
+</body>
 <script type="text/javascript">
 
     $(document).ready(function() {
 
     } );
 </script>
-</body>
 </html>
