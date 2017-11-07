@@ -24,7 +24,7 @@ public class HomeController {
         Msg msg = new Msg();
         msg.setContent("测试信息");
         model.addAttribute("msg",msg);
-        return "index";
+        return "case/index";
     }
 
     @RequestMapping(value = "/index",method = RequestMethod.GET)

@@ -8,7 +8,7 @@
 <!-- WRAPPER -->
 <div id="wrapper">
     <!-- NAVBAR -->
-    <div th:include="fragments/navBar" th:remove="tag">REPLACE BEFORE COMMITTING</div>
+    <div th:include="fragments/navBar :: header" th:remove="tag">REPLACE BEFORE COMMITTING</div>
     <!-- END NAVBAR -->
     <!-- LEFT SIDEBAR -->
     <div th:include="fragments/sidebarTag" th:remove="tag">REPLACE BEFORE COMMITTING</div>
@@ -20,28 +20,51 @@
                 <div class="row">
                     <div class="col-md-12">
                         <!-- RECENT PURCHASES -->
-                        <div class="panel">
+                        <div class="panel panel_progress">
                             <div class="panel-heading ph1">
                                 <h3 class="text-center"><b>审批进度</b></h3>
                             </div>
-                            <div class="panel-body">
-                                <br/><br/><br/>
-                                <div class="col-md-12 progress-title">
-                                    <button class="col-md-3">林业站</button>
-                                    <button class="col-md-3">林业局</button>
-                                    <button class="col-md-3">财政局</button>
-                                    <button class="col-md-3">银&nbsp;行</button>
-                                </div>
-                                <br/><br/>
+                            <div class="panel-body pb1">
+                                <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+
                                 <div class="col-md-12 progressbar">
-                                    <button class="btn-progress-success col-md-2" >提交成功</button>
-                                    <button class="btn-progress-next col-md-1"><i class="glyphicon glyphicon-arrow-right arrow-success"></i></button>
-                                    <button class="btn-progress-success col-md-2" >审批通过</button>
-                                    <button class="btn-progress-next col-md-1"><i class="glyphicon glyphicon-arrow-right arrow-success"></i></button>
-                                    <button class="btn-progress-success col-md-2" >审批通过</button>
-                                    <button class="btn-progress-next col-md-1"><i class="glyphicon glyphicon-arrow-right arrow-verfying"></i></button>
-                                    <button class="btn-progress-verifying col-md-2" >审批中</button>
+                                    <div class="progress-line">
+                                        <div class="div-cricle col-md-3">
+                                            <button class="btn-step1"></button>
+                                            <p>林业站提交</p>
+                                            <p>提交成功</p>
+                                            <p>2017-11-01</p>
+                                        </div>
+                                        <div class="div-cricle col-md-3">
+                                            <button class="btn-step2"></button>
+                                            <p>林业局审批</p>
+                                            <p>审批通过</p>
+                                            <p>2017-11-02</p>
+                                        </div>
+                                        <div class="div-cricle col-md-3">
+                                            <button class="btn-step3"></button>
+                                            <p>财政局审批</p>
+                                            <p>审批通过</p>
+                                            <p>2017-11-03</p>
+                                        </div>
+                                        <div class="div-cricle col-md-3">
+                                            <button class="btn-step4"></button>
+                                            <p>银行审批</p>
+                                            <p>审批中</p>
+                                            <p>2017-11-04</p>
+                                        </div>
+                                    </div>
                                 </div>
+                            </div>
+
+                        </div>
+                        <div class="progress progress-striped active progress-no-margin">
+                            <div class="progress-bar progress-bar-success" role="progressbar" >
+                            </div>
+                        </div>
+                        <div class="panel panel_progress">
+                            <div class="empty">
+
                             </div>
                         </div>
                         <!-- END RECENT PURCHASES -->
@@ -50,7 +73,7 @@
             </div>
         </div>
     </div>
-
+    <input type="hidden" th:value="${#httpServletRequest.getParameter('state')}" id="state"/>
     <!--<div class="clearfix"></div>-->
 </div>
 <!-- END WRAPPER -->
@@ -58,4 +81,36 @@
 <div th:include="fragments/jsTag" th:remove="tag">REPLACE BEFORE COMMITTING</div>
 <!-- END Javascript -->
 </body>
+<script>
+    $(document).ready(function () {
+        var condition = $('#state').val();
+        progresscolor(condition);
+    })
+
+    function progresscolor(step){
+        var int_step = parseInt(step)-1;
+        var btn_width = 12.5+(25*int_step)+"%";
+        var btn_step;
+        var btn_class;
+        $('.progress-bar').css('width',btn_width);
+        for(var i=1;5>i;i++){
+            btn_step = ".btn-step"+i;
+            btn_class = "btn-step"+i;
+            $(btn_step).attr('class',btn_class+' btn-progress-verifying');
+        }
+        if(int_step>4){
+            for(var i=1;5>=i;i++){
+                btn_step = ".btn-step"+i;
+                btn_class = "btn-step"+i;
+                $(btn_step).attr('class',btn_class+' btn-progress-success');
+            }
+        }else{
+            for(var i=0;int_step>=i;i++){
+                btn_step = ".btn-step"+i;
+                btn_class = "btn-step"+i+" btn-progress-verifying";
+                $(btn_step).attr('class',btn_class+' btn-progress-success');
+            }
+        }
+    }
+</script>
 </html>
