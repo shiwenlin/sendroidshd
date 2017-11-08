@@ -11,6 +11,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.Timestamp;
+
 @Controller
 @RequestMapping("/user")
 public class UserController {
@@ -64,8 +66,9 @@ public class UserController {
      * @param sysUser
      * @return
      */
-    @RequestMapping(value = "/user_add")
+    @RequestMapping(value = "/user_add",method = RequestMethod.POST)
     public String addUser(SysUser sysUser){
+        sysUser.setCreateTime(new Timestamp(System.currentTimeMillis()));
         sysUserService.saveUser(sysUser);
         return "redirect:/user/user_list";
     }

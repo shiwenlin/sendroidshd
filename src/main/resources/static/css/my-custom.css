@@ -513,12 +513,12 @@
     float: left;
 }
 
-#username-error,#password-error{
+#username-error,#password-error,#name-error,#phone-error,#email-error{
     height: 100% !important;
     background: rgba(0,0,0,0) !important;
     border: 0;
     padding: 0;
-    color: #cc0212;
+    color: red;
     cursor: default!important;
     outline: none!important;
 }
@@ -675,13 +675,20 @@
     padding-top: 2vh!important;
 }
 
-.addon-long{
-    width: 30%;
-    height: 100%!important;
-    float: left;
-}
-
 .add-form{
     width: 60%!important;
     float: left!important;
+}
+
+.add-text{
+    width: 45% !important;
+    float: left;
+}
+
+.add-label{
+    width: 15%!important;
+}
+
+.add-text{
+    width: 40%!important;
 }
