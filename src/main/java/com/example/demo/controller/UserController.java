@@ -45,7 +45,7 @@ public class UserController {
     public String selectUser(Model model,SysUser sysUser,@RequestParam(defaultValue = "1") Integer page,
                              @RequestParam(defaultValue = "10") Integer size){
         Page<SysUser> users = sysUserService.selectUserList(sysUser, page, size);
-        model.addAttribute("userList",users);
+        model.addAttribute("datas",users);
         model.addAttribute("query",sysUser);
         return "case/user/user_list";
     }

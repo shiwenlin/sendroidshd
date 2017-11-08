@@ -358,6 +358,34 @@ td input {
 }
 /*//data*/
 
-/*index*/
-
-/*//index*/
+/*new_case*/
+/*.table-body {*/
+    /*border: 1px solid #B0BED9;*/
+    /*border-radius: 5px;*/
+    /*margin: 10px 15px;*/
+/*}*/
+.table-body .table input {
+    height: 30px;
+    width: 100%;
+    border: none;
+    padding: 0 15px;
+    outline: none;
+    font-size: 16px;
+    background-color: inherit;
+}
+.table-body .table tr td label {
+    margin: 0 0;
+    height: 100%;
+    padding: 5px;
+    font-size: 1.1em;
+}
+.table-body .table tr td:nth-child(1) {
+    border: 1px solid #B0BED9;
+}
+.table-body .table tr td:nth-child(1):hover {
+    background-color: #E8EAF6;
+}
+.table-body .table tr td:nth-child(2) {
+    border: 1px solid #B0BED9;
+}
+/*//new_case*/
