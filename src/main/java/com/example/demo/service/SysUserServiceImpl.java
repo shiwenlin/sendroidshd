@@ -49,7 +49,7 @@ public class SysUserServiceImpl implements SysUserService{
             }
         };
 
-        Pageable pageable = new PageRequest(page-1, size);
+        Pageable pageable = new PageRequest(page, size);
 
         return sysUserRepository.findAll(specification,pageable);
     }
@@ -57,7 +57,7 @@ public class SysUserServiceImpl implements SysUserService{
 
 
     public Page<SysUser> getUserList(Integer page, Integer size){
-        Pageable pageable = new PageRequest(page-1, size, Sort.Direction.ASC, "id");
+        Pageable pageable = new PageRequest(page, size, Sort.Direction.ASC, "id");
         return  sysUserRepository.findAll(pageable);
     }
 
@@ -65,6 +65,9 @@ public class SysUserServiceImpl implements SysUserService{
     @Override
     @Transactional
     public void saveUser(SysUser sysUser) {
+        sysUser.setCreateTime(new Date());
+        //sysUser.setCreateTime(new Timestamp(System.currentTimeMillis()));
+
         sysUserRepository.save(sysUser);
     }
 

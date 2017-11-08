@@ -40,7 +40,7 @@ public class UserController {
      * @return
      */
     @RequestMapping(value = "/user_list")
-    public String selectUser(Model model,SysUser sysUser,@RequestParam(defaultValue = "1") Integer page,
+    public String selectUser(Model model,SysUser sysUser,@RequestParam(defaultValue = "0") Integer page,
                              @RequestParam(defaultValue = "10") Integer size){
         Page<SysUser> users = sysUserService.selectUserList(sysUser, page, size);
         model.addAttribute("datas",users);
@@ -67,7 +67,7 @@ public class UserController {
     @RequestMapping(value = "/user_add")
     public String addUser(SysUser sysUser){
         sysUserService.saveUser(sysUser);
-        return "case/user/user_list";
+        return "redirect:/user/user_list";
     }
 
 
@@ -79,6 +79,18 @@ public class UserController {
     public String updateUser(SysUser sysUser){
         sysUserService.updateUser(sysUser);
         return "case/user/user_list";
+    }
+
+
+    /**
+     * 删除指定用户
+     * @param uid
+     * @return
+     */
+    @RequestMapping("/user_delete")
+    public String deleteUser(@RequestParam(value = "id") long uid){
+        sysUserService.deleteUser(uid);
+        return "redirect:/user/user_list";
     }
 
 
