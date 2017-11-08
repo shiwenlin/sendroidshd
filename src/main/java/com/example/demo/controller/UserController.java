@@ -45,8 +45,19 @@ public class UserController {
         Page<SysUser> users = sysUserService.selectUserList(sysUser, page, size);
         model.addAttribute("userList",users);
         model.addAttribute("query",sysUser);
-        return "case/user_list";
+        return "case/user/user_list";
     }
+
+
+    /**
+     * 添加用户页面
+     * @return
+     */
+    @RequestMapping(value = "/add_user",method = RequestMethod.GET)
+    public String add_User(){
+        return "case/user/add_user";
+    }
+
 
     /**
      * 用户增加
@@ -56,7 +67,7 @@ public class UserController {
     @RequestMapping(value = "/user_add")
     public String addUser(SysUser sysUser){
         sysUserService.saveUser(sysUser);
-        return "case/user_list";
+        return "case/user/user_list";
     }
 
 
@@ -67,7 +78,7 @@ public class UserController {
      */
     public String updateUser(SysUser sysUser){
         sysUserService.updateUser(sysUser);
-        return "case/user_list";
+        return "case/user/user_list";
     }
 
 
