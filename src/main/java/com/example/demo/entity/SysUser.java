@@ -1,11 +1,14 @@
 package com.example.demo.entity;
 
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.Length;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
+import javax.validation.constraints.Pattern;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
@@ -19,7 +22,15 @@ public class SysUser implements UserDetails {
     @Id
     @GeneratedValue
     private Long id;
+
+
+    @Column(name = "username",nullable = false)
+    @Length(min=6,max=14,message = "*用户名长度6-14")  //被注释的字符串的大小必须在指定的范围内
     private String username;
+
+
+    @Column(name = "password",nullable = false)
+    @Length(min=6,max=14,message = "*密码长度6-14")
     private String password;
 
     /**
@@ -27,9 +38,11 @@ public class SysUser implements UserDetails {
      */
 
     @Column(name = "phone", nullable = false)
+    @Pattern(regexp = "^1(3|4|5|7|8)\\d{9}$",message = "*请输入正确的手机号")
     private String phone;
 
-    @Column(nullable = false)
+    @Column(name="email", nullable = false)
+    @Email(message = "*邮箱错误")
     private String email;
 
     @Column(name = "create_time", nullable = false)
@@ -37,6 +50,8 @@ public class SysUser implements UserDetails {
     @DateTimeFormat(pattern = "MM/dd/yyyy")
     private Date createTime;
 
+    @Length(min=2,message = "*请输入两个字以上的姓名")  //
+    @Column(name = "name", nullable = false)
     private String name;
 
 

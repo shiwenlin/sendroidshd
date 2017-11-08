@@ -19,7 +19,6 @@ import javax.persistence.criteria.Root;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Date;
-import java.text.SimpleDateFormat;
 
 
 @Service
@@ -32,8 +31,6 @@ public class SysUserServiceImpl implements SysUserService{
 
     @Override
     public Page<SysUser> selectUserList( SysUser sysUser,int page,int size) {
-
-
 
         Specification specification = new Specification<SysUser>() {
             @Override
@@ -55,10 +52,16 @@ public class SysUserServiceImpl implements SysUserService{
     }
 
 
-
+    @Override
     public Page<SysUser> getUserList(Integer page, Integer size){
         Pageable pageable = new PageRequest(page, size, Sort.Direction.ASC, "id");
         return  sysUserRepository.findAll(pageable);
+    }
+
+    @Override
+    public SysUser getUserById(Long id){
+        SysUser sysUser = sysUserRepository.findOne(id);
+        return sysUser;
     }
 
 
@@ -66,7 +69,6 @@ public class SysUserServiceImpl implements SysUserService{
     @Transactional
     public void saveUser(SysUser sysUser) {
         sysUser.setCreateTime(new Date());
-        //sysUser.setCreateTime(new Timestamp(System.currentTimeMillis()));
 
         sysUserRepository.save(sysUser);
     }
@@ -79,9 +81,13 @@ public class SysUserServiceImpl implements SysUserService{
 
 
     @Override
+    @Transactional
     public void updateUser(SysUser sysUser) {
         SysUser repositoryOne = sysUserRepository.findOne(sysUser.getId());
-        //判断更新的项目
+        //判断更新的项目   目前只更新用户手机
+        if (!StringUtils.isEmpty(sysUser.getPhone())){
+            repositoryOne.setPhone(sysUser.getPhone());
+        }
     }
 
 
