@@ -154,7 +154,6 @@
                                         <li th:if="${datas.number+2 lt datas.totalPages}"><a href="#" th:href="@{${curUrl}(page=${datas.number}+2)}" th:text="${datas.number+3}"></a></li>
                                     </div>
 
-
                                     <li th:if="${datas.hasNext()}"><a href="#" th:href="@{${curUrl}(page=${datas.number+1})}">下一页</a></li>
                                     <!--<li><a href="#" th:href="@{${curUrl}(page=${datas.totalPages-1})}">尾页</a></li>-->
                                     <li><a href="#" th:href="${datas.totalPages le 0 ? curUrl+'page=0':curUrl+'&amp;page='+(datas.totalPages-1)}">尾页</a></li>

@@ -91,6 +91,10 @@
 </body>
 <script>
     $(document).ready(function () {
+
+        $('.add-user-form').attr('th:action','@{/user/user_update}');
+        $('.add-user-form').attr('action','/user/user_update');
+
         $('.add-user-form').validate({
             rules: {
                 name: {
