@@ -665,3 +665,23 @@
     margin-top: 5vh;
     text-align: left;
 }
+
+
+/*!
+ * link ->> add_user.html
+ */
+
+.div-input-add{
+    padding-top: 2vh!important;
+}
+
+.addon-long{
+    width: 30%;
+    height: 100%!important;
+    float: left;
+}
+
+.add-form{
+    width: 60%!important;
+    float: left!important;
+}
