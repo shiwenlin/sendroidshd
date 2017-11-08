@@ -8,7 +8,7 @@
 <!-- WRAPPER -->
 <div id="wrapper">
     <!-- NAVBAR -->
-    <div th:include="fragments/navBar" th:remove="tag">REPLACE BEFORE COMMITTING</div>
+    <div th:include="fragments/navBar :: header" th:remove="tag">REPLACE BEFORE COMMITTING</div>
     <!-- END NAVBAR -->
     <!-- LEFT SIDEBAR -->
     <div th:include="fragments/sidebarTag" th:remove="tag">REPLACE BEFORE COMMITTING</div>
@@ -20,6 +20,12 @@
                 <div class="row">
                     <div class="col-md-12">
                         <!-- RECENT PURCHASES -->
+                        <div class="div-submit col-md-15">
+                            <a th:href="@{/user/add_user}">
+                                <button class="btn btn-primary btn-submit"><i class="glyphicon glyphicon-plus"></i>添加用户</button>
+                            </a>
+                        </div>
+                        <br/><br/><br/>
                         <div class="panel">
                             <div class="panel-heading ph1">
                                 <h3 class="panel-title " style="font-weight: 800">操作</h3>
@@ -31,20 +37,20 @@
                                 <form class="form-condition" th:action="@{/user/user_list}"   th:method="get" method="get" >
                                     <!--th:object="${sysUser}"  th:field="*{isbn}"  -->
 
-                                    <div class="form-group col-sm-2">
+                                    <div class="form-group col-sm-3">
                                         <label>乡镇</label>
                                         <input type="text" class="form-control" placeholder="输入查询乡镇"  />
                                     </div>
-                                    <div class="form-group col-sm-2">
+                                    <div class="form-group col-sm-3">
                                         <label>村委</label>
                                         <input type="text" class="form-control" placeholder="输入要查询的村委"  />
                                     </div>
-                                    <div class="form-group col-sm-2">
+                                    <div class="form-group col-sm-3">
                                         <label>村小组</label>
                                         <input type="text" class="form-control" placeholder="输入要查询的村小组" />
                                     </div>
 
-                                    <div class="form-group col-sm-2">
+                                    <div class="form-group col-sm-3">
                                         <label>电话</label>
                                         <input th:value="${query.phone}" type="text" name="phone" placeholder="输入要查询的手机号" class="form-control" />
                                     </div>
@@ -71,16 +77,16 @@
                                 <table class="table table-striped table-hover">
                                     <thead>
                                     <tr class="col-md-15" id="tr-title3">
-                                        <th class="col-md-2 no-padding"><input  type="text" class="input-text-title"  disabled="disabled" value="姓名"/></th>
-                                        <th class="col-md-2 no-padding"><input  type="text" class="input-text-title"  disabled="disabled" value="用户名"/></th>
+                                        <th class="col-md-1 no-padding"><input  type="text" class="input-text-title"  disabled="disabled" value="姓名"/></th>
+                                        <th class="col-md-1 no-padding"><input  type="text" class="input-text-title"  disabled="disabled" value="用户名"/></th>
                                         <th class="col-md-1 no-padding"><input  type="text" class="input-text-title"  disabled="disabled" value="乡镇"/></th>
                                         <th class="col-md-1 no-padding"><input  type="text" class="input-text-title"  disabled="disabled" value="村委"/></th>
-                                        <th class="col-md-2 no-padding"><input  type="text" class="input-text-title"  disabled="disabled" value="村小组"/></th>
+                                        <th class="col-md-1 no-padding"><input  type="text" class="input-text-title"  disabled="disabled" value="村小组"/></th>
                                         <th class="col-md-1 no-padding"><input  type="text" class="input-text-title"  disabled="disabled" value="电话"/></th>
-                                        <th class="col-md-1 no-padding"><input  type="text" class="input-text-title"  disabled="disabled" value="邮件"/></th>
+                                        <th class="col-md-2 no-padding"><input  type="text" class="input-text-title"  disabled="disabled" value="邮件"/></th>
                                         <th class="col-md-1 no-padding"><input  type="text" class="input-text-title"  disabled="disabled" value="创建时间"/></th>
                                         <th class="col-md-1 no-padding"><input  type="text" class="input-text-title"  disabled="disabled" value="状态"/></th>
-                                        <th class="col-md-2 no-padding"><input  type="text" class="input-text-title"  disabled="disabled" value="操作"/></th>
+                                        <th class="col-md-1 no-padding"><input  type="text" class="input-text-title"  disabled="disabled" value="操作"/></th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -98,7 +104,7 @@
                                         <td ><input th:value="${user.email}" type="text" class="input-btn-default col-md-2 no-padding" disabled="disabled" /></td>
                                         <td ><input th:value="${user.createTime}" type="text" class="input-btn-default col-md-2 no-padding" disabled="disabled" /></td>
                                         <td  class="td-no-padding"><input  type="button" class="user-operation btn btn-info"  th:value="正常使用"/></td>
-                                        <td  class="td-no-padding"><a href="new_forestry_case.html"><input th:value="删除" type="button" class="user-operation btn btn-info" /></a></td>
+                                        <td  class="td-no-padding"><a href="../new_forestry_case.html"><input th:value="删除" type="button" class="user-operation btn btn-info" /></a></td>
                                     </tr>
 
 
