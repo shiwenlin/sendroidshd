@@ -88,6 +88,7 @@ public class SysUserServiceImpl implements SysUserService{
         if (!StringUtils.isEmpty(sysUser.getPhone())){
             repositoryOne.setPhone(sysUser.getPhone());
         }
+        sysUserRepository.save(repositoryOne);
     }
 
 

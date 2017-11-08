@@ -25,12 +25,12 @@ public class SysUser implements UserDetails {
 
 
     @Column(name = "username",nullable = false)
-    @Length(min=6,max=14,message = "*用户名长度6-14")  //被注释的字符串的大小必须在指定的范围内
+    @Length(min=6,max=14,message = "*用户名长度5-14")  //被注释的字符串的大小必须在指定的范围内
     private String username;
 
 
     @Column(name = "password",nullable = false)
-    @Length(min=6,max=14,message = "*密码长度6-14")
+    @Length(min=6,max=14,message = "*密码长度5-14")
     private String password;
 
     /**
