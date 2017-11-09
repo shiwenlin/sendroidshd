@@ -1,3 +1,7 @@
+html,body{
+    height:100%;
+    margin:0;
+}
 /*!
  * link ->> new_town_case.html
  */
@@ -5,6 +9,13 @@
 .div-date{
     width: 100%;
     float: left;
+    margin-bottom: 2vh;
+}
+
+.div-date .form-control-type1{
+    border: solid 1px #c0c0c0;
+    border-top-right-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
 }
 
 .input-group-date{
@@ -568,6 +579,20 @@
  * link ->> new_case.html
  */
 
+.new_case_pb .span-input-head{
+    margin-top: 1vh;
+    text-align: center;
+}
+
+.new_case_pb .span-input-head span,.new_case_pb .span-input-head input{
+    border-radius: 0;
+}
+
+.td-label1 label{
+    font-weight: normal;
+    color: #676a6d;
+}
+
 .td-label1{
     border: 0;
     border-right: solid 1px #c0c0c0;
@@ -590,13 +615,9 @@
     float: left!important;
 }
 
-.input-group-right{
-    float: left!important;
-}
-
 .div-list-first,.div-list-second{
     width: 100%;
-    border-left: solid 1px #c0c0c0;
+    border: 0px;
     margin: 0;
     float: left;
 }
@@ -736,6 +757,10 @@
     overflow: hidden;
 }
 
+.tr2-long .div-verify-date:first-child{
+    border-top: 0;
+}
+
 .input-group-half{
     height: 50%;
     width: 50%;
@@ -762,7 +787,7 @@
 
 .btn-verify-date,.btn-verify-date2,.btn-verify-date3{
     width: 20%;
-    height: 100%;
+    height: 100%!important;
     background: #eeeeee;
     border: 0;
     float: left;
@@ -774,6 +799,11 @@
 
 .btn-verify-date3{
     width: 26%;
+}
+
+.form-verify-date3{
+    width: 74% !important;
+    float: left;
 }
 /*!
  * link ->> add_user.html
@@ -799,4 +829,45 @@
 
 .add-text{
     width: 40%!important;
+}
+
+/*!
+ * link ->> user_list.html
+ */
+
+.td-show-state input{
+    width: 90%;
+    height: 100%;
+}
+
+.td-show-state a{
+    width: 50%;
+    height: 100%;
+    float: left!important;
+}
+
+.input-group-list1{
+    height: 15vh;
+    border: solid 1px #c0c0c0;
+    padding: 0;
+}
+
+.input-group-list1 .form-control{
+    width: 100%;
+    height: 100%;
+    border: 0;
+    border-radius: 0;
+    border-right: solid 1px #c0c0c0;
+    text-align: center;
+    color: #00a0f0;
+}
+
+.input-group-list1 span{
+    width: 40%;
+    border: 0;
+    border-radius: 0;
+}
+
+.input-group-list1 .input-group{
+    height: 33.33% !important;
 }

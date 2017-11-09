@@ -28,39 +28,39 @@
                                 </div>
                                 <!-- PANEL-BODY-1 -->
                                 <div class="panel-body new_case_pb">
-                                    <div class="input-group input-group-left col-md-2">
-                                        <span class="input-group-addon">资金性质：</span>
-                                        <input class="form-control" tabindex="1"/>
+                                    <div class="span-input-head">
+                                        <div class="input-group input-group-left col-md-2">
+                                            <span class="input-group-addon">资金性质：</span>
+                                            <input class="form-control" tabindex="1"/>
+                                        </div>
+                                        <input type="button" class="btn-alpha col-md-3"/>
+                                        <div class="input-group input-group-middle col-md-2">
+                                            <span class="input-group-addon">时间：</span>
+                                            <input type="text" onfocus="(this.type='date')" name="date" class="form-control" placeholder="yyyy-mm-dd" tabindex="2"/>
+                                        </div>
+                                        <input type="button" class="btn-alpha col-md-3"/>
+                                        <div class="input-group input-group-right col-md-2">
+                                            <span class="input-group-addon">编号：</span>
+                                            <input class="form-control" tabindex="3"/>
+                                        </div>
                                     </div>
-                                    <input type="button" class="btn-alpha col-md-3"/>
-                                    <div class="input-group input-group-middle col-md-2">
-                                        <span class="input-group-addon">时间：</span>
-                                        <input type="text" onfocus="(this.type='date')" name="date" class="form-control" placeholder="yyyy-mm-dd" tabindex="2"/>
-                                    </div>
-                                    <input type="button" class="btn-alpha col-md-3"/>
-                                    <div class="input-group input-group-right col-md-2">
-                                        <span class="input-group-addon">编号：</span>
-                                        <input class="form-control" tabindex="3"/>
-                                    </div>
-
                                     <div class="div-list-first">
                                         <button class="col-md-12 list-title">财政直接支付</button>
-                                        <div class="col-md-6">
+                                        <div class="input-group-list1 col-md-6">
                                             申请用款单位：惠东县林业局
-                                            <p></p>
-                                            <p></p>
+                                            <br/><br/>
                                             <p>(公章)</p>
                                         </div>
-                                        <div class="col-md-6">
-                                            <div class="input-group input-group-list1 col-md-6">
+                                        <div class="input-group-list1 col-md-6">
+                                            <div class="input-group col-md-6">
                                                 <span class="input-group-addon">收款单位：</span>
-                                                <a>补偿清单12页</a>
+                                                <input class="form-control" tabindex="4" value="补偿清单12页"/>
                                             </div>
-                                            <div class="input-group input-group-list1 col-md-6">
+                                            <div class="input-group col-md-6">
                                                 <span class="input-group-addon">银行帐号：</span>
                                                 <input class="form-control" tabindex="4"/>
                                             </div>
-                                            <div class="input-group input-group-list1 col-md-6">
+                                            <div class="input-group col-md-6">
                                                 <span class="input-group-addon">&nbsp;开&nbsp;户&nbsp;行：</span>
                                                 <input class="form-control" tabindex="5"/>
                                             </div>
@@ -202,21 +202,19 @@
                                     </div>
                                 </div>
                                 <div class="panel-body new_case_pb">
-                                    <div class="tr1">
-                                        <button type="button">核拨金额</button>
-                                    </div>
-                                    <div class="tr2-long">
-                                        <div class="input-group input-group-half">
-                                            <button type="button" class="btn-verify-date3">(RMB)￥：</button>
-                                            <input class="form-control"/>
+                                    <div class="panel-body new_case_pb">
+                                        <div class="tr1">
+                                            <button type="button">核拨金额</button>
                                         </div>
-                                        <div class="input-group input-group-half">
-                                            <button type="button" class="btn-verify-date3">拨款人(签章)：</button>
-                                            <input class="form-control"/>
-                                        </div>
-                                        <div class="input-group input-group-half">
-                                            <button type="button" class="btn-verify-date3">拨款人(签章)：</button>
-                                            <input class="form-control"/>
+                                        <div class="tr2-long">
+                                            <div class="div-verify-date">
+                                                <button type="button" class="btn-verify-date2">RMB（￥）</button>
+                                                <input type="text" class="form-control form-control-type1"/>
+                                            </div>
+                                            <div class="div-verify-date">
+                                                <button type="button" class="btn-verify-date2">拨款人（签章）</button>
+                                                <input type="text" class="form-control form-control-type1"/>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="detail">
