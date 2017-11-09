@@ -82,13 +82,11 @@ public class SysUserServiceImpl implements SysUserService{
 
     @Override
     @Transactional
-    public void updateUser(SysUser sysUser) {
-        SysUser repositoryOne = sysUserRepository.findOne(sysUser.getId());
-        //判断更新的项目   目前只更新用户手机
-        if (!StringUtils.isEmpty(sysUser.getPhone())){
-            repositoryOne.setPhone(sysUser.getPhone());
-        }
-        sysUserRepository.save(repositoryOne);
+    public void updateUser(String phone,Long id) {
+        //save自动判断 如果传过来的user有主键，并且在数据库中存在这个主键，更新所有
+        //sysUserRepository.save(sysUser);
+
+        sysUserRepository.updateUserById(phone,id);
     }
 
 

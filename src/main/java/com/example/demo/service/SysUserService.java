@@ -15,7 +15,7 @@ public interface SysUserService {
 
     void deleteUser(long id);
 
-    void updateUser(SysUser sysUser);
+    void updateUser(String phone,Long id);
 
      SysUser getUserById(Long id);
 }
