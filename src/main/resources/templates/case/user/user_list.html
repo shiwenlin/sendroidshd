@@ -103,8 +103,8 @@
                                         <td ><input th:value="${user.phone}" type="text" class="input-btn-default col-md-1 no-padding" disabled="disabled" /></td>
                                         <td ><input th:value="${user.email}" type="text" class="input-btn-default col-md-2 no-padding" disabled="disabled" /></td>
                                         <td ><input th:value="${user.createTime}" type="text" class="input-btn-default col-md-2 no-padding" disabled="disabled" /></td>
-                                        <td  class="td-no-padding"><input  type="button" class="user-operation btn btn-info"  th:value="正常使用"/></td>
-                                        <td  class="td-no-padding">
+                                        <td  class="td-no-padding td-show-state"><input  type="button" class="user-operation btn btn-info"  th:value="正常使用"/></td>
+                                        <td  class="td-no-padding td-show-state col-md-1">
                                             <a  href="#" th:href="@{/user/user_delete(id=${user.id})}"><input th:value="删除" type="button" class="user-operation btn btn-info" /></a>
                                             <a  href="#" th:href="@{'/user/edit_user?id='+${user.id}(page=${datas.number})}"><input th:value="编辑" type="button" class="user-operation btn btn-info" /></a>
                                         </td>
@@ -153,7 +153,6 @@
                                         <li th:if="${datas.number+1 lt datas.totalPages}"><a href="#" th:href="@{${curUrl}(page=${datas.number}+1)}" th:text="${datas.number+2}"></a></li>
                                         <li th:if="${datas.number+2 lt datas.totalPages}"><a href="#" th:href="@{${curUrl}(page=${datas.number}+2)}" th:text="${datas.number+3}"></a></li>
                                     </div>
-
 
                                     <li th:if="${datas.hasNext()}"><a href="#" th:href="@{${curUrl}(page=${datas.number+1})}">下一页</a></li>
                                     <!--<li><a href="#" th:href="@{${curUrl}(page=${datas.totalPages-1})}">尾页</a></li>-->

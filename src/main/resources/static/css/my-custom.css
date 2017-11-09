@@ -1,3 +1,7 @@
+html,body{
+    height:100%;
+    margin:0;
+}
 /*!
  * link ->> new_town_case.html
  */
@@ -5,6 +9,13 @@
 .div-date{
     width: 100%;
     float: left;
+    margin-bottom: 2vh;
+}
+
+.div-date .form-control-type1{
+    border: solid 1px #c0c0c0;
+    border-top-right-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
 }
 
 .input-group-date{
@@ -134,6 +145,7 @@
     outline: none;
     margin-left: 0!important;
     margin-right: 0!important;
+    font-family: "Source Sans Pro", sans-serif!important;
 }
 
 #tr-title,#tr-title2,#tr-title3{
@@ -142,8 +154,17 @@
     text-align: center;
 }
 
-#tr1,#tr2,#tr3{
-    border-bottom: solid 1px #c0c0c0;
+#th1,#th2,#th3{
+    border: 0;
+}
+
+#th1 input,#th2 input,#th3 input{
+    text-align: center;
+}
+
+#th1 td:first-child,#th2 td:first-child,#th3 td:first-child{
+    border-left: solid 1px #c0c0c0!important;
+    text-align: center;
 }
 
 .checkbox{
@@ -222,17 +243,37 @@
 
 .form-control-type1{
     outline: #0ea0db !important;
+    padding: 1vh!important;
+    margin: 0!important;
+    border-radius: 0px;
+    background: rgba(0,0,0,0)!important;
+    box-shadow: 0px 0px 0px;
+    border: 0;
+    border-right: solid 1px #c0c0c0;
+    border-bottom: solid 1px #c0c0c0;
+
+}
+
+.form-control-type2{
+    outline: #0ea0db !important;
     padding: 0!important;
     margin: 0!important;
     border-radius: 0px;
     background: rgba(0,0,0,0)!important;
     box-shadow: 0px 0px 0px;
+    border: 0;
+    border-right: solid 1px #c0c0c0;
+    border-bottom: solid 1px #c0c0c0;
 }
 
 .col-md-1,.no-padding,.td-checkbox{
     border: 0!important;
     padding-top: 0!important;
     padding-bottom: 0!important;
+}
+
+.td-checkbox{
+    border-right: solid 1px #c0c0c0!important;
 }
 
 .order_number{
@@ -281,8 +322,12 @@
     border: 0;
     padding: 0;
     background: rgba(0,0,0,0);
+    outline: none;
 }
 
+.total{
+    border-right: solid 1px #c0c0c0!important;
+}
 /*!
  * link ->> case_town_view.html
  */
@@ -534,9 +579,36 @@
  * link ->> new_case.html
  */
 
+.new_case_pb .span-input-head{
+    margin-top: 1vh;
+    text-align: center;
+}
+
+.new_case_pb .span-input-head span,.new_case_pb .span-input-head input{
+    border-radius: 0;
+}
+
+.td-label1 label{
+    font-weight: normal;
+    color: #676a6d;
+}
+
+.td-label1{
+    border: 0;
+    border-right: solid 1px #c0c0c0;
+    border-bottom: solid 1px #c0c0c0;
+    background: #f0f0f0;
+    color: #8c8c8c;
+}
+
 .new_case_pb{
     width: 100%;
     text-align: center;
+    padding: 0!important;
+}
+
+.new_case_pb table{
+    margin: 0!important;
 }
 
 .input-group-left,.input-group-middle,.input-group-right{
@@ -545,8 +617,8 @@
 
 .div-list-first,.div-list-second{
     width: 100%;
-    border: solid 1px;
-    margin-top: 1vh;
+    border: 0px;
+    margin: 0;
     float: left;
 }
 
@@ -578,8 +650,12 @@
 }
 
 .btn-total{
+    width: 100%;
+    height: 100%;
     background: rgba(0,0,0,0);
-    border: silver 1px;
+    border: 0;
+    margin: 0!important;
+    padding: 0!important;
 }
 
 .list-table td{
@@ -592,17 +668,23 @@
 
 .tr1,.tr2,.tr3,.tr2-long{
     float: left;
-    border: solid 1px;
     text-align: center;
+    border: 0;
+    border-left: solid 1px #c0c0c0;
+    border-bottom: solid 1px #c0c0c0;
 }
 
 .tr1{
     width: 15%;
     height: 15vh;
 }
+
 .tr1 button{
     width: 100%;
     height: 100%;
+    border: 0;
+    outline: none;
+    cursor: default;
 }
 
 .tr2{
@@ -622,10 +704,31 @@
 }
 
 .tr3 .input-group-right{
-    height: 33%;
+    width: 100%;
+    height: 33.3%;
+}
+
+.tr3 .input-group-right span,.tr3 .input-group-left span{
+    width: 30%;
+    border: 0;
+    border-bottom: solid 1px #c0c0c0;
+    border-radius: 0px;
+}
+
+.verify-last-span{
+    border-bottom: 0px!important;
+}
+
+.tr3 input{
+    width: 100%;
+    height: 100%!important;
+    border: 0;
+    border-bottom: solid 1px #c0c0c0;
+    border-radius: 0px;
 }
 
 .tr3 .input-group-left{
+    width: 100%;
     height: 50%;
 }
 
@@ -654,6 +757,10 @@
     overflow: hidden;
 }
 
+.tr2-long .div-verify-date:first-child{
+    border-top: 0;
+}
+
 .input-group-half{
     height: 50%;
     width: 50%;
@@ -666,7 +773,38 @@
     text-align: left;
 }
 
+.div-verify-date{
+    height: 50%;
+    border-top: solid 1px #c0c0c0;
+}
 
+.div-verify-date input{
+    width: 80%;
+    height: 100%!important;
+    float: left;
+    border: 0;
+}
+
+.btn-verify-date,.btn-verify-date2,.btn-verify-date3{
+    width: 20%;
+    height: 100%!important;
+    background: #eeeeee;
+    border: 0;
+    float: left;
+}
+
+.btn-verify-date2{
+    width: 13%;
+}
+
+.btn-verify-date3{
+    width: 26%;
+}
+
+.form-verify-date3{
+    width: 74% !important;
+    float: left;
+}
 /*!
  * link ->> add_user.html
  */
@@ -691,4 +829,45 @@
 
 .add-text{
     width: 40%!important;
+}
+
+/*!
+ * link ->> user_list.html
+ */
+
+.td-show-state input{
+    width: 90%;
+    height: 100%;
+}
+
+.td-show-state a{
+    width: 50%;
+    height: 100%;
+    float: left!important;
+}
+
+.input-group-list1{
+    height: 15vh;
+    border: solid 1px #c0c0c0;
+    padding: 0;
+}
+
+.input-group-list1 .form-control{
+    width: 100%;
+    height: 100%;
+    border: 0;
+    border-radius: 0;
+    border-right: solid 1px #c0c0c0;
+    text-align: center;
+    color: #00a0f0;
+}
+
+.input-group-list1 span{
+    width: 40%;
+    border: 0;
+    border-radius: 0;
+}
+
+.input-group-list1 .input-group{
+    height: 33.33% !important;
 }
