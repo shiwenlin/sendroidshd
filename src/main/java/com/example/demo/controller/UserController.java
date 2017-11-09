@@ -100,9 +100,9 @@ public class UserController {
             return "case/user/add_user";
         }
 
-        //判断添加的邮箱 email是否唯一
+        //只更新phone
 
-        sysUserService.updateUser(sysUser);
+        sysUserService.updateUser(sysUser.getPhone(),sysUser.getId());
         return "redirect:/user/user_list?page="+page;
     }
 
