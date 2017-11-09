@@ -113,9 +113,10 @@ public class UserController {
      * @return
      */
     @RequestMapping("/user_delete")
-    public String deleteUser(@RequestParam(value = "id") long uid){
+    public String deleteUser(@RequestParam(value = "id") long uid,
+                             @RequestParam(defaultValue = "0") Integer page){
         sysUserService.deleteUser(uid);
-        return "redirect:/user/user_list";
+        return "redirect:/user/user_list?page="+page;
     }
 
 

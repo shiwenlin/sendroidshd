@@ -105,7 +105,7 @@
                                         <td ><input th:value="${user.createTime}" type="text" class="input-btn-default col-md-2 no-padding" disabled="disabled" /></td>
                                         <td  class="td-no-padding td-show-state"><input  type="button" class="user-operation btn btn-info"  th:value="正常使用"/></td>
                                         <td  class="td-no-padding td-show-state col-md-1">
-                                            <a  href="#" th:href="@{/user/user_delete(id=${user.id})}"><input th:value="删除" type="button" class="user-operation btn btn-info" /></a>
+                                            <a  href="#" th:href="@{'/user/user_delete?id='+${user.id}(page=${datas.number})}"><input th:value="删除" type="button" class="user-operation btn btn-info" /></a>
                                             <a  href="#" th:href="@{'/user/edit_user?id='+${user.id}(page=${datas.number})}"><input th:value="编辑" type="button" class="user-operation btn btn-info" /></a>
                                         </td>
                                     </tr>
