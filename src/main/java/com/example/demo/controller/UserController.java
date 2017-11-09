@@ -11,6 +11,9 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import javax.swing.text.html.Option;
+import java.util.Optional;
+
 
 @Controller
 @RequestMapping("/user")
@@ -26,8 +29,10 @@ public class UserController {
      * @return
      */
     @RequestMapping(value = "/add_user",method = RequestMethod.GET)
+    @ExceptionHandler(NullPointerException.class)
     public String add_User(Model model){
         model.addAttribute("sysUser",new SysUser());
+
         return "case/user/add_user";
     }
 
@@ -36,10 +41,10 @@ public class UserController {
      * 编辑用户页面跳转
      * @return
      */
+
     @RequestMapping(value = "/edit_user",method = RequestMethod.GET)
     public String edit_User(@RequestParam(value = "id") Long uid,Model model,
                             @RequestParam(defaultValue = "0") Integer page){
-
         SysUser user = sysUserService.getUserById(uid);
         model.addAttribute("sysUser",user);
         //记录更新的页数
@@ -47,8 +52,6 @@ public class UserController {
 
         return "case/user/add_user";
     }
-
-
 
 
     /**
