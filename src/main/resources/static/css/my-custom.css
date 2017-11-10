@@ -152,10 +152,15 @@ html,body{
     background: rgba(0,0,0,0.5);
     color: #ffffff;
     text-align: center;
+    padding-left: 0!important;
 }
 
 #th1,#th2,#th3{
     border: 0;
+}
+
+#tr-title3 th{
+    padding: 8px!important;
 }
 
 #th1 input,#th2 input,#th3 input{
@@ -387,6 +392,20 @@ html,body{
     color:#676a6d;
     text-align: center;
     outline: none;
+}
+
+.town-view-tb tr{
+    padding: 0!important;
+}
+
+.town-view-tb td{
+    border: 0!important;
+    border-right: solid 1px #dddddd!important;
+    border-bottom: solid 1px #dddddd!important;
+}
+
+.town-view-tb td:last-child{
+    border-right: 0!important;
 }
 
 .td-no-padding{
@@ -870,4 +889,19 @@ html,body{
 
 .input-group-list1 .input-group{
     height: 33.33% !important;
+}
+
+.user-list-tb tr {
+    padding: 0!important;
+}
+
+.user-list-tb td {
+    padding-top: 8px!important;
+    border: 0!important;
+    border-right: solid 1px #c0c0c0!important;
+    border-bottom: solid 1px #c0c0c0!important;
+}
+
+.user-list-tb tr td:last-child {
+    border-right: 0!important;
 }

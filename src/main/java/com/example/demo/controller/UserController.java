@@ -54,15 +54,12 @@ public class UserController {
     }
 
 
-
-
     /**
      * 用户搜索功能
      * @param sysUser
      * @return
      */
     @RequestMapping(value = "/user_list")
-    @ExceptionHandler(RuntimeException.class)
     public String selectUser(Model model,SysUser sysUser,@RequestParam(defaultValue = "0") Integer page,
                              @RequestParam(defaultValue = "10") Integer size){
         Page<SysUser> users = sysUserService.selectUserList(sysUser, page, size);
