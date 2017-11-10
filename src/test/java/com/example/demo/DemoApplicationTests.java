@@ -13,4 +13,10 @@ public class DemoApplicationTests {
 	public void contextLoads() {
 	}
 
+	public static void main(String[] args) {
+		DemoTest demoTest = null;
+		System.out.println("!!!!");
+		demoTest = new DemoTest();
+	}
+
 }
